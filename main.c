@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/17 18:24:26 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:52:05 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,21 @@ void swap_a(t_pile **head)
 void rotate_a(t_pile *pile)
 {
 	t_pile *top = pile;
-	t_pile *second = pile->next;
+	t_pile *tmp = pile;
+	int i;
 	
-	while(pile->next != NULL)
-	{	
-		printf("%d o\n",pile->content);
-		pile = pile->next;
+	i = top->content;
+    while (top->next != NULL)
+	{
+		top->content = top->next->content;
+		top = top->next;
 	}
-    //printf("%d i\n",second->content);
-	second->next = pile->next;
-	pile->next = top;
-	top->next = second;
+	top->content = i;
+}
+
+void reverse_a(t_pile *pile)
+{
+	
 }
 
 int main(int ac, char **av)
