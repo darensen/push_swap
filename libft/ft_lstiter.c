@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 15:33:31 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/23 15:49:47 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/30 20:35:57 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/12/02 14:41:41 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	t_list	*tmp;
+
 	while (lst)
 	{
-		(*f)(lst -> content);
-		lst = lst -> next;
+		tmp = lst->next;
+		(*f)(lst->content);
+		lst = tmp;
 	}
 }

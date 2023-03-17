@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 14:29:50 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/22 15:52:42 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/21 18:36:45 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/21 18:49:57 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	nb;
-
-	if (n < 0)
+	if (n == -2147483648)
 	{
-		ft_putchar_fd('-', fd);
-		n = n * (-1);
+		write(fd, "-214748364", 10);
+		n = 8;
 	}
-	nb = n;
-	if (nb >= 10)
+	if (n >= 0 && n <= 9)
+		ft_putchar_fd(n + 48, fd);
+	else if (n < 0)
 	{
-		ft_putnbr_fd(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
+		write(fd, "-", 1);
+		n = n * -1;
+		ft_putnbr_fd(n, fd);
 	}
-	else
-		ft_putchar_fd((nb + '0'), fd);
+	else if (n > 0)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
 }

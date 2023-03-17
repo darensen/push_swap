@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 11:59:35 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/23 16:53:07 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/08 17:24:07 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 17:33:25 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
+	if (c < ' ' || c > '~')
 		return (0);
+	return (1);
 }

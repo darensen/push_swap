@@ -3,34 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 12:06:46 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/12/06 12:43:59 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/07/12 14:02:57 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 17:31:22 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
-	int	boite;
-	int	num;
+	int	nb;
+	int	signe;
 
 	i = 0;
-	boite = 1;
-	num = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	signe = 1;
+	nb = 0;
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
 		i++;
-	if (str[i] == '-')
-		boite = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		num = num * 10 + (str[i] - '0');
+		if (nptr[i] == '-')
+			signe = -1;
 		i++;
 	}
-	return (num * boite);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = (nptr[i] - 48) + nb * 10;
+		i++;
+	}
+	return (nb * signe);
 }

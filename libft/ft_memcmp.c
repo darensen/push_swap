@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 17:27:16 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/23 16:09:03 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/13 18:26:26 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/21 16:42:25 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp( const void *pointer1, const void *pointer2, size_t size )
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*bridge1;
-	unsigned char	*bridge2;
 	size_t			i;
+	unsigned char	*str;
+	unsigned char	*str1;
 
-	bridge1 = (unsigned char *)pointer1;
-	bridge2 = (unsigned char *)pointer2;
+	str = (unsigned char *)s1;
+	str1 = (unsigned char *)s2;
 	i = 0;
-	if (size == 0)
+	if (n == 0)
 		return (0);
-	while (i < size)
+	while (i < n)
 	{
-		if (bridge1[i] != bridge2[i])
-			return ((int)(bridge1[i] - bridge2[i]));
+		if (str[i] != str1[i])
+			return (str[i] - str1[i]);
 		i++;
 	}
 	return (0);

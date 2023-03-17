@@ -3,51 +3,63 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 10:43:49 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/25 17:58:35 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/15 01:10:48 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/23 20:13:22 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	max(const char *s, size_t len, int start)
+static size_t	maxlen(char const *str, size_t len, unsigned int st)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < len && s[start])
+	while (str[st] && i < len)
 	{
+		st++;
 		i++;
-		start++;
 	}
+	return (i);
+}
+
+static unsigned int	slen(char const *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
 	return (i);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	char	*tab;
+	char	*str;
 
 	i = 0;
-	if (ft_strlen(s) < start)
+	if (!s)
+		return (NULL);
+	if (start > slen(s))
 	{
-		tab = malloc(sizeof(char) * 1);
-		if (!tab)
+		str = malloc(1);
+		if (str == NULL)
 			return (NULL);
-		tab[i] = '\0';
-		return (tab);
+		str[0] = '\0';
+		return (str);
 	}
-	tab = malloc(sizeof(char) * (max(s, len, (int)start) + 1));
-	if (!tab)
+	str = malloc(sizeof(char) * maxlen(s, len, start) + 1);
+	if (str == NULL)
 		return (NULL);
 	while (s[start] && i < len)
 	{
-		tab[i] = s[start];
+		str[i] = s[start];
 		i++;
 		start++;
 	}
-	tab[i] = '\0';
-	return (tab);
+	str[i] = '\0';
+	return (str);
 }

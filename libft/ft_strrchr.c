@@ -3,53 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 13:26:55 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/25 17:44:48 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/11 17:26:31 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 17:40:13 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	occurence(const char *str, int c)
+static int	occurence(const char *s, int c)
 {
 	int	n;
 	int	i;
 
 	i = 0;
 	n = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] == (char)c)
+		if (s[i] == (char)c)
 		{
-			n++;
+		n++;
 		}
-		i++;
+	i++;
 	}
 	return (n);
 }
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 	int	o;
 
 	o = 0;
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] == (char)c)
+		if (s[i] == (char)c)
 		{
-			o++;
-			if (o == occurence(str, c))
+		o++;
+			if (o == (occurence(s, c)))
 			{
-				return ((char *)&str[i]);
+				return ((char *)&s[i]);
 			}
 		}
-		i++;
+	i++;
 	}
-	if (str[i] == '\0' && c == '\0')
-		return ((char *)&str[i]);
-	return (NULL);
+	if (c == '\0' && s[i] == '\0')
+		return ((char *)&s[i]);
+	return (0);
 }

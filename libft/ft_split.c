@@ -3,45 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 15:25:52 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/12/06 16:17:42 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/23 14:53:00 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/23 19:11:48 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countword(char *s, char c)
+static size_t	t_word(char const *s, char c)
 {
-	int	word;
-	int	check;
-	int	i;
+	size_t	i;
+	size_t	word;
 
-	word = 0;
-	check = 0;
 	i = 0;
+	word = 0;
 	while (s[i] == c && s[i] != '\0')
 		i++;
 	while (s[i])
 	{
-		if (s[i] != c && check == 0)
-		{
-			check = 1;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			word++;
-		}
-		else if (s[i] == c)
-			check = 0;
 		i++;
 	}
 	return (word);
 }
 
-static char	*tab_filler(char const *s, char c)
-{	
-	char	*str;
+static char	*get_sp(char const *s, char c)
+{
 	int		i;
 	int		y;
+	char	*str;
 
 	i = 0;
 	y = 0;
@@ -70,7 +63,7 @@ char	**ft_split(char const *s, char c)
 	y = 0;
 	if (!s)
 		return (NULL);
-	word = ft_countword((char *)s, c);
+	word = t_word(s, c);
 	str = malloc(sizeof(char *) * (word + 1));
 	if (!str)
 		return (NULL);
@@ -79,7 +72,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if (((i == 0) || (s[i - 1] == c)) && (y < word) && (s[i] != c))
 		{
-			str[y] = tab_filler(&s[i], c);
+			str[y] = get_sp(&s[i], c);
 			y++;
 		}
 		i++;

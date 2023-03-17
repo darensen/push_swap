@@ -3,64 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/16 11:16:47 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/25 17:55:17 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/28 15:15:18 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 15:45:11 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count(int n)
+static size_t	ft_count(int n)
 {
-	int	i;
+	size_t	count;
 
-	i = 0;
+	count = 1;
+	if (n == 0)
+		return (2);
 	if (n < 0)
+	{
 		n = n * -1;
-	while (n != 0)
+		count++;
+	}
+	while (n)
 	{
+		count++;
 		n = n / 10;
-		i++;
 	}
-	return (i);
-}
-
-static int	ft_fill(char *tab, int count, int i, long int longn)
-
-{
-	if (longn < 0)
-	{
-		tab[0] = '-';
-		i++;
-		longn = longn * -1;
-	}
-	tab[count] = '\0';
-	while (count > i)
-	{
-		count--;
-		tab[count] = (longn % 10) + '0';
-		longn = longn / 10;
-	}
-	return (longn);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char		*tab;
-	int			count;
-	int			i;
-	long int	longn;
+	char		*result;
+	long int	num;
+	size_t		count;
 
-	longn = n;
-	count = ft_count(longn);
-	i = 0;
-	if (longn < 0 || count == 0)
-		count++;
-	tab = malloc(sizeof(char) * (count + 1));
-	if (!tab)
+	num = n;
+	count = ft_count(num);
+	result = malloc(sizeof(char ) * count);
+	if (!result)
 		return (NULL);
-	ft_fill(tab, count, i, longn);
-	return (tab);
+	if (num < 0)
+	{
+		result[0] = '-';
+		num = num * -1;
+	}
+	if (num == 0)
+		result[0] = '0';
+	count--;
+	result[count] = '\0';
+	while (num)
+	{
+		result[count - 1] = num % 10 + '0';
+		count--;
+		num = num / 10;
+	}
+	return (result);
 }

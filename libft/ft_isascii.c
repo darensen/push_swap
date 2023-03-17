@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 11:59:26 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/23 16:52:56 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/08 17:15:27 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 17:32:22 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
+	if (c < '\0' || c > 127)
 		return (0);
+	return (1);
 }

@@ -3,50 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 14:07:39 by abeaudui          #+#    #+#             */
-/*   Updated: 2022/11/23 16:27:46 by abeaudui         ###   ########.fr       */
+/*   Created: 2022/11/18 20:29:00 by dsenatus          #+#    #+#             */
+/*   Updated: 2022/11/28 15:07:19 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*tab_filler(char *tab, char const *s1, char const *s2)
+static char	*ft_strcat(char const *s1, char const *s2, char *str)
 {
 	int	i;
-	int	j;
+	int	y;
 
 	i = 0;
-	j = 0;
-	while (s1[i])
+	y = 0;
+	while (s1[y] != '\0')
 	{
-		tab[j] = s1[i];
+		str[i] = s1[y];
 		i++;
-		j++;
+		y++;
 	}
-	i = 0;
-	while (s2[i])
+	y = 0;
+	while (s2[y] != '\0')
 	{
-		tab[j] = s2[i];
+		str[i] = s2[y];
 		i++;
-		j++;
+		y++;
 	}
-	tab[j] = '\0';
-	return (tab);
+	str[i] = '\0';
+	return (str);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*a;
-	int		totlen;
+	char	*str;
 
-	totlen = (ft_strlen(s1) + ft_strlen(s2));
 	if (!s1 || !s2)
 		return (NULL);
-	a = malloc(sizeof(char) * (totlen + 1));
-	if (a == NULL)
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
 		return (NULL);
-	a = tab_filler(a, s1, s2);
-	return (a);
+	ft_strcat(s1, s2, str);
+	return (str);
 }
