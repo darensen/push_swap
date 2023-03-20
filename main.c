@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/20 14:35:01 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:06:32 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,25 @@ int main(int ac, char **av)
 	i = 0;
 	tab = malloc(sizeof(int) * ac);
 	
+	if (is_number(av) == 1)
+		return 1;
 	while(i != ac - 1) 
 	{
 		
 		tab[i] = ft_atoi(av[temp--]);
 		i++;
 	}
+	if (is_double(tab) == 1)
+		return (1);
+	if (is_max_size(tab) == 1)
+		return (1);
 	i = 0;
 	while(i < ac - 1) 
 	{
 		push_number(&pile_a, tab[i++]);
 	}
 	i = 0;
-	push_a(&pile_a, &pile_b);
+	//push_a(&pile_a, &pile_b);
 	//push_a(&pile_a, &pile_b);
 	//push_a(&pile_a, &pile_b);
 	//push_a(&pile_a, &pile_b);
@@ -47,7 +53,7 @@ int main(int ac, char **av)
 	//push_a(&pile_a, &pile_b);
 	//push_a(&pile_a, &pile_b);
 	//rotate(&pile_a);
-	reverse_rotate_b(&pile_b);
+	//reverse_rotate_b(&pile_b);
 	//rrr(&pile_a, &pile_b);
 	//ss(&pile_a, &pile_b);
 	

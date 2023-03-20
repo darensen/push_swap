@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/20 14:30:15 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:04:52 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,9 @@ void rotate(t_pile **pile);
 void reverse_rotate_a(t_pile **pile);
 void reverse_rotate_b(t_pile **pile);
 void rrr(t_pile **pile_a, t_pile **pile_b);
+int is_double(int *tab);
+int is_number(char **tab);
+int is_max_size(int *tab);
+
 
 #endif
