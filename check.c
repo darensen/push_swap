@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:29:09 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/20 16:07:23 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:02:29 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,20 @@ int is_double(int *tab)
 	return (0);	
 }
 
-int is_number(char **tab)
+int is_number(char **str)
 {
 	int i;
 	int j;
 
 	i = 1;
-	while (tab[i])
+	while (str[i])
 	{
 		j = 0;
-		while (tab[i][j])
+		while (str[i][j])
 		{
-			if (ft_isdigit(tab[i][j]) == 1)
+			if (j == 0 && str[i][j] == '-')
+				j++;
+			if (ft_isdigit(str[i][j]) == 1)
 				return (1);
 			j++;
 		}

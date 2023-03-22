@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/20 16:04:52 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:25:45 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdio.h>
-#include <stdlib.h>
-
+# include <stdlib.h>
+# include "libft/libft.h"
 typedef struct s_pile
 {
 	int				content;
@@ -36,13 +36,17 @@ void push_a(t_pile **pile_a, t_pile **pile_b);
 void push_b(t_pile **pile_a, t_pile **pile_b);
 void free_list(t_pile **pile);
 void ss(t_pile **pile_a, t_pile **pile_b);
-void rotate(t_pile **pile);
+void rotate_a(t_pile **pile);
+void rotate_b(t_pile **pile);
 void reverse_rotate_a(t_pile **pile);
 void reverse_rotate_b(t_pile **pile);
 void rrr(t_pile **pile_a, t_pile **pile_b);
 int is_double(int *tab);
 int is_number(char **tab);
 int is_max_size(int *tab);
+void tri(t_pile **pile_a, t_pile **pile_b);
+void last_lst(int nb, t_pile **pile_a, t_pile **pile_b);
+void print_all(t_pile **pile_a, t_pile **pile_b);
 
 
 #endif

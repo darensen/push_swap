@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/20 16:06:32 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:44:18 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,15 @@ int main(int ac, char **av)
 	pile_a = NULL;
 	pile_b = NULL;
 	i = 0;
-	tab = malloc(sizeof(int) * ac);
 	
+	tab = malloc(sizeof(int) * ac);
+	if (!tab)
+		return (0);
 	if (is_number(av) == 1)
-		return 1;
+	{
+		printf("oui");
+		return (1);
+	}
 	while(i != ac - 1) 
 	{
 		
@@ -41,38 +46,48 @@ int main(int ac, char **av)
 	{
 		push_number(&pile_a, tab[i++]);
 	}
+	printf("fist call");
+	print_all(&pile_a, &pile_b);
+	tri(&pile_a, &pile_b);
 	i = 0;
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//push_a(&pile_a, &pile_b);
-	//rotate(&pile_a);
-	//reverse_rotate_b(&pile_b);
-	//rrr(&pile_a, &pile_b);
-	//ss(&pile_a, &pile_b);
-	
-	printf("/ PILE A /\n");
-	while (pile_a != NULL)
+	printf("\nlast call");
+	print_all(&pile_a, &pile_b);
+	//printf("/ PILE A /\n");
+	/*while (pile_a != NULL)
 	{
 		printf("| %d |", pile_a->content);
 		//printf("| %d |", pile_a->index);
 
 		pile_a = pile_a ->next;
 	}
-	
 	printf("\n/ PILE B /\n");
 	while (pile_b != NULL)
 	{
 		printf("| %d |", pile_b->content);
 		pile_b = pile_b->next;
-	}
-
+	}*/
 	return(0);
+}
+
+void print_all(t_pile **pile_a, t_pile **pile_b)
+{
+	t_pile *oui;
+	t_pile *non;
+	
+	oui = *pile_a;
+	non = *pile_b;
+	printf("\n");
+	printf("\n/ PILE A /\n");
+	while (oui != NULL)
+	{
+		printf("| %d |", oui->content);
+		oui = oui->next;
+	}
+	printf("\n/ PILE B /\n");
+	while (non != NULL)
+	{
+		printf("| %d |", non->content);
+		non = non->next;
+	}	
 }
 
