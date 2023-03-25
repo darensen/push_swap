@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dadou <dadou@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/22 17:25:45 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:25:26 by dadou            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int is_double(int *tab);
 int is_number(char **tab);
 int is_max_size(int *tab);
 void tri(t_pile **pile_a, t_pile **pile_b);
-void last_lst(int nb, t_pile **pile_a, t_pile **pile_b);
+int last_lst(int nb, t_pile **pile_a, t_pile **pile_b);
 void print_all(t_pile **pile_a, t_pile **pile_b);
-
+int	lstsize(t_pile *lst);
 
 #endif
