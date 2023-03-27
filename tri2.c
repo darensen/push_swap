@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:21:39 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/27 15:55:53 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:45:24 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int  last_lst2(int nb, t_pile **pile_a, t_pile **pile_b)
         push_a(pile_a, pile_b);
         print_all(pile_a, pile_b);
     }
-    else if (nb < (*pile_a)->content)
+    else if (nb < (*pile_b)->content)
     {
         rotate_b(pile_b);
         print_all(pile_a, pile_b);
@@ -38,17 +38,41 @@ int  last_lst2(int nb, t_pile **pile_a, t_pile **pile_b)
     }
 }
 
+int  sup(t_pile **pile, int mid)
+{
+    t_pile *tmp;
+
+    tmp = *pile;
+    if (!tmp->next)
+        return (0);
+    while (tmp)
+    {
+        if (mid > tmp->content)
+        { 
+            return (0);
+        } 
+        tmp = tmp->next;
+    }
+   
+    return (1);
+}
+
 void tri2(t_pile **pile_a, t_pile **pile_b, int chunk)
 {
     int i;
     int j;
     t_pile *tmp;
-    t_pile *pil;
-    
+
+    j = 0;
     tmp = *pile_b;
-     if (!tmp->next)
+    i = 0;
+    if (chunk == 1)
+    {
+        push_a(pile_a, pile_b);
         return ;
+    }
     i = lstsize(tmp) / 2;
+    
     while (i != 0)
     {
         tmp = tmp->next;
@@ -60,15 +84,16 @@ void tri2(t_pile **pile_a, t_pile **pile_b, int chunk)
         i--;
     }
     j = tmp->content;
-    printf("new mid %d\n", j);
-    print_all(pile_a, pile_b);
-    if (inf(pile_b, j) == 0)
+     if (inf(pile_a, j) == 0)
     {
-        rotate_b(pile_b);
+        rotate_a(pile_a);
         print_all(pile_a, pile_b);
     }
-    while (addr(pile_b, j) != NULL && inf(pile_b, j) != 0)
+    printf("new mid %d\n", j);
+    print_all(pile_a, pile_b);
+    while (addr(pile_b, j) != NULL && sup(pile_b, j) == 1)
     { 
-        last_lst2(j, pile_a, pile_b);   
+        last_lst2(j, pile_a, pile_b);
+        printf("new mid boucle %d\n", j);
     } 
 }

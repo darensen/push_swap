@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/27 16:03:25 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:46:47 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ int main(int ac, char **av)
 		swap_a(&pile_a);
 
 	printf("\nnouveau TRII BYVUYVVV\n");
-	/*while (pile_b)
+	b = i;
+	/*while(b != 0)
 	{
 		tri2(&pile_a, &pile_b, c[b]);
-		b++;
-	}*/	
+		b--;
+	}*/
 	printf("last call");
 	print_all(&pile_a, &pile_b);
-	
 	b = 0;
 	while (b != i)
 	{
