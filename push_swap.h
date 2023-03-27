@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/27 17:57:40 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/27 19:16:41 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int last_lst(int nb, t_pile **pile_a, t_pile **pile_b);
 void print_all(t_pile **pile_a, t_pile **pile_b);
 int	lstsize(t_pile *lst);
 int *fill_tab(char **av, int ac);
-void tri2(t_pile **pile_a, t_pile **pile_b, int chunk);
+void tri2(t_pile **pile_a, t_pile **pile_b, int chunk, int *tab);
+void tri_3(t_pile **pile_b, t_pile **pile_a);
 int	lstsize(t_pile *lst);
 t_pile  *addr(t_pile **pile, int mid);
 int  inf(t_pile **pile, int mid);

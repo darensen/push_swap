@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:21:39 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/27 18:08:34 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/27 19:45:42 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,44 +57,42 @@ int  sup(t_pile **pile, int mid)
     return (1);
 }
 
-void tri2(t_pile **pile_a, t_pile **pile_b, int chunk)
+void tri2(t_pile **pile_a, t_pile **pile_b, int chunk, int *tab)
 {
     int i;
-    int j;
     t_pile *tmp;
 
-    push_a(pile_a, pile_b);
-    /*j = 0;
     tmp = *pile_b;
     i = 0;
     if (chunk == 1)
     {
         push_a(pile_a, pile_b);
+        print_all(pile_a, pile_b);
         return ;
     }
-    i = lstsize(tmp) / 2;
-    while (i != 0)
+    if (chunk == 2)
     {
-        tmp = tmp->next;
-        if (i == 1)
+        while (tmp->next->next != NULL)
         {
-            if (tmp->content > tmp->next->content)
-                tmp = tmp->next;
+            tmp = tmp->next;
         }
-        i--;
+        if (tmp->content > tmp->next->content)
+        {
+            swap_b(pile_b);
+            push_a(pile_a, pile_b);
+            push_a(pile_a, pile_b);
+            print_all(pile_a, pile_b);
+        }
+        else
+        { 
+            push_a(pile_a, pile_b);
+            push_a(pile_a, pile_b);
+            print_all(pile_a, pile_b);
+        }
     }
-    j = tmp->content;
-    if (inf(pile_a, j) == 0)
+    if (chunk == 3)
     {
-        rotate_a(pile_a);
-        print_all(pile_a, pile_b);
+        //tri_3(pile_b, pile_a);
+        //print_all(pile_a, pile_b);
     }
-    printf("new mid %d\n", j);
-    print_all(pile_a, pile_b);
-    while (addr(pile_b, j) != NULL && sup(pile_b, j) == 1)
-    { 
-        //last_lst2(j, pile_a, pile_b);
-        push_a(pile_a, pile_b);
-        printf("new mid boucle %d\n", j);
-    }*/ 
 }
