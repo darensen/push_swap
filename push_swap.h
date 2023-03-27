@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/27 16:36:44 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:57:40 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void tri2(t_pile **pile_a, t_pile **pile_b, int chunk);
 int	lstsize(t_pile *lst);
 t_pile  *addr(t_pile **pile, int mid);
 int  inf(t_pile **pile, int mid);
-
+void	ft_sort_int_tab(int *tab, int size);
 #endif

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/27 17:46:47 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:05:55 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int ac, char **av)
 	if (is_number(av) == 0 && ac > 3)
 		{
 			tab = fill_tab(av, ac);
+			ft_sort_int_tab(tab, ac - 1);
 			if (is_double(tab) == 0 && is_max_size(tab) == 0)
 			{
 				while(i < ac - 1) 
@@ -64,17 +65,18 @@ int main(int ac, char **av)
 
 	printf("\nnouveau TRII BYVUYVVV\n");
 	b = i;
-	/*while(b != 0)
+	while(pile_b != NULL)
 	{
 		tri2(&pile_a, &pile_b, c[b]);
 		b--;
-	}*/
+	}
 	printf("last call");
 	print_all(&pile_a, &pile_b);
 	b = 0;
+	
 	while (b != i)
 	{
-		printf(" %d ", c[b]);
+		printf("[%d] ", c[b]);
 		b++;
 	}
 	return(0);

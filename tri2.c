@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:21:39 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/27 17:45:24 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:08:34 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void tri2(t_pile **pile_a, t_pile **pile_b, int chunk)
     int j;
     t_pile *tmp;
 
-    j = 0;
+    push_a(pile_a, pile_b);
+    /*j = 0;
     tmp = *pile_b;
     i = 0;
     if (chunk == 1)
@@ -72,7 +73,6 @@ void tri2(t_pile **pile_a, t_pile **pile_b, int chunk)
         return ;
     }
     i = lstsize(tmp) / 2;
-    
     while (i != 0)
     {
         tmp = tmp->next;
@@ -84,7 +84,7 @@ void tri2(t_pile **pile_a, t_pile **pile_b, int chunk)
         i--;
     }
     j = tmp->content;
-     if (inf(pile_a, j) == 0)
+    if (inf(pile_a, j) == 0)
     {
         rotate_a(pile_a);
         print_all(pile_a, pile_b);
@@ -93,7 +93,8 @@ void tri2(t_pile **pile_a, t_pile **pile_b, int chunk)
     print_all(pile_a, pile_b);
     while (addr(pile_b, j) != NULL && sup(pile_b, j) == 1)
     { 
-        last_lst2(j, pile_a, pile_b);
+        //last_lst2(j, pile_a, pile_b);
+        push_a(pile_a, pile_b);
         printf("new mid boucle %d\n", j);
-    } 
+    }*/ 
 }
