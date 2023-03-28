@@ -6,19 +6,12 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/27 18:46:36 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:45:38 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int chunk(int i)
-{
-	int a;
-	int b;
-	
-	
-}
 
 int main(int ac, char **av)
 {
@@ -53,31 +46,24 @@ int main(int ac, char **av)
 	b = 0;
 	c = malloc(sizeof(int) * lstsize(pile_a));
 	i = 0;
-	while (first->next->next != NULL)
+	if (ac == 4)
+	{
+		print_all(&pile_a, &pile_b);
+		tri_3(&pile_a, &pile_b);
+		print_all(&pile_a, &pile_b);
+		return (0);
+	}
+	while (first->next->next->next != NULL)
 	{
 		c[i] = tri(&pile_a, &pile_b);
 		if (c[i] != 0)
 			i++;
 	}
-	if (pile_a->content < pile_a->next->content)
-		swap_a(&pile_a);
-	printf("\nnouveau TRII BYVUYVVV\n");
-	b = i;
-	while(b != -1)
-	{
-		tri2(&pile_a, &pile_b, c[b], c);
-		b--;
-	}
-	printf("last call");
+	tri_3(&pile_a, &pile_b);
+	printf("\nlast call");
 	print_all(&pile_a, &pile_b);
-	b = 0;
-	
-	while (b != i)
-	{
-		printf("[%d] ", c[b]);
-		b++;
-	}
-	return(0);
+	//add_index(&pile_a, &pile_b);
+	printf("\nnouveau TRI pour B et la fin\n");
 }
 
 void print_all(t_pile **pile_a, t_pile **pile_b)
@@ -91,13 +77,13 @@ void print_all(t_pile **pile_a, t_pile **pile_b)
 	printf("\n/ PILE A /\n");
 	while (oui != NULL)
 	{
-		printf("| %d |", oui->content);
+		printf("%d===>", oui->content);
 		oui = oui->next;
 	}
 	printf("\n/ PILE B /\n");
 	while (non != NULL)
 	{
-		printf("| %d |", non->content);
+		printf("%d===>", non->content);
 		non = non->next;
 	}	
 }

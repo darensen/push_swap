@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:56:28 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/27 19:35:44 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:43:04 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,45 +39,39 @@ void	ft_sort_int_tab(int *tab, int size)
 		i++;
 	}
 }
-void tri_3(t_pile **pile_b, t_pile **pile_a)
+void tri_3(t_pile **pile_a, t_pile **pile_b)
 {
     t_pile *tmp;
     
-    tmp = *pile_b;
-    while (tmp->next->next->next != NULL)
-    {
-        tmp = tmp ->next;
-    }
-	if (tmp->content > tmp->next->content
-		&& tmp->next->content > tmp->next->next->content
-		&& tmp->content > tmp->next->next->content) // 321
+    tmp = *pile_a;
+	if (tmp->content < tmp->next->content
+		&& tmp->next->content < tmp->next->next->content
+		&& tmp->content < tmp->next->next->content) // 123
 	{
-		rotate_b(pile_b);
-		swap_b(pile_b);
+		reverse_rotate_a(pile_a);
 	}
 	else if (tmp->content > tmp->next->content
 		&& tmp->next->content < tmp->next->next->content
 		&& tmp->content < tmp->next->next->content) // 213
-		reverse_rotate_b(pile_b);
+		reverse_rotate_a(pile_a);
 	else if (tmp->content > tmp->next->content
 		&& tmp->next->content < tmp->next->next->content
-		&& tmp->content > tmp->next->next->content) // 312
-			rotate_b(pile_b);
+		&& tmp->content > tmp->next->next->content) // 312 ok
+		{
+			swap_a(pile_a);
+		}
 	else if (tmp->content < tmp->next->content
 		&& tmp->next->content > tmp->next->next->content
 		&& tmp->content < tmp->next->next->content) // 132
 	{
-		reverse_rotate_b(pile_b);
-		swap_a(pile_b);
+		rotate_a(pile_a);
 	}
 	else if (tmp->content < tmp->next->content
 		&& tmp->next->content > tmp->next->next->content
 		&& tmp->content > tmp->next->next->content) // 231
-		reverse_rotate_b(pile_b);
-
-    printf("ICIOUIOUI");
-    print_all(pile_a, pile_b);
-    push_a(pile_a, pile_b);
-    push_a(pile_a, pile_b);
-    push_a(pile_a, pile_b);
+		{
+			rotate_a(pile_a);
+			swap_a(pile_a);
+		}
 }
+

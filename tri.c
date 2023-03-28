@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:46:34 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/27 15:30:40 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:37:53 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_pile  *addr(t_pile **pile, int mid)
     t_pile *tmp;
 
     tmp = *pile;
-    if (!tmp->next->next)
+    if (!tmp->next->next->next)
         return (NULL); 
     while (tmp->content != mid)
         tmp = tmp->next;
@@ -73,7 +73,7 @@ int  inf(t_pile **pile, int mid)
     t_pile *tmp;
 
     tmp = *pile;
-    if (!tmp->next)
+    if (!tmp->next->next->next)
         return (0);
     while (tmp)
     {
@@ -95,7 +95,7 @@ int tri(t_pile **pile_a, t_pile **pile_b)
     t_pile *pil;
     
     tmp = *pile_a;
-     if (!tmp->next)
+    if (!tmp->next->next)
         return (0);
     i = lstsize(tmp) / 2;
     while (i != 0)
@@ -111,15 +111,13 @@ int tri(t_pile **pile_a, t_pile **pile_b)
     j = tmp->content;
     printf("new mid %d\n", j);
     print_all(pile_a, pile_b);
-    if (inf(pile_a, j) == 0)
+    if (inf(pile_a, j) == 0);
     {
         rotate_a(pile_a);
         print_all(pile_a, pile_b);
     }
     i = 0;
     while (addr(pile_a, j) != NULL && inf(pile_a, j) != 0)
-    { 
-        i = i + last_lst(j, pile_a, pile_b);   
-    } 
+        i = i + last_lst(j, pile_a, pile_b);
     return (i);
 }
