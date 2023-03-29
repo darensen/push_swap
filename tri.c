@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:46:34 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/28 19:37:53 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:40:51 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ int  inf(t_pile **pile, int mid)
     t_pile *tmp;
 
     tmp = *pile;
-    if (!tmp->next->next->next)
-        return (0);
     while (tmp)
     {
         if (mid > tmp->content)
@@ -87,7 +85,7 @@ int  inf(t_pile **pile, int mid)
     return (0);
 }
 
-int tri(t_pile **pile_a, t_pile **pile_b)
+int tri(t_pile **pile_a, t_pile **pile_b, int *tab)
 {
     int i;
     int j;

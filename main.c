@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/28 20:45:38 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:10:50 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(int ac, char **av)
 	t_pile *first;
 
 	int *tab;
+	int *bab;
 	int i;
 	int *c;
 	
@@ -31,7 +32,7 @@ int main(int ac, char **av)
 	if (is_number(av) == 0 && ac > 3)
 		{
 			tab = fill_tab(av, ac);
-			//ft_sort_int_tab(tab, ac - 1);
+			bab = ft_sort_int_tab(tab, ac - 1);
 			if (is_double(tab) == 0 && is_max_size(tab) == 0)
 			{
 				while(i < ac - 1) 
@@ -49,29 +50,42 @@ int main(int ac, char **av)
 	if (ac == 4)
 	{
 		print_all(&pile_a, &pile_b);
-		tri_3(&pile_a, &pile_b);
+		tri_3(&pile_a);
 		print_all(&pile_a, &pile_b);
 		return (0);
 	}
-	while (first->next->next->next != NULL)
+	if (ac == 6)
 	{
-		c[i] = tri(&pile_a, &pile_b);
-		if (c[i] != 0)
-			i++;
+		tri_5(&pile_a, &pile_b, bab);
 	}
-	tri_3(&pile_a, &pile_b);
+	if (ac == 5)
+	{
+		while (first->next->next->next != NULL)
+		{
+			c[i] = tri(&pile_a, &pile_b, bab);
+			if (c[i] != 0)
+				i++;
+		}
+		tri_3(&pile_a);
+		push_a(&pile_a, &pile_b);
+	}
+	if (ac > 5)
+	{
+		tri_g(&pile_a, &pile_b, bab, ac - 1);
+	}
+	
 	printf("\nlast call");
 	print_all(&pile_a, &pile_b);
-	//add_index(&pile_a, &pile_b);
-	printf("\nnouveau TRI pour B et la fin\n");
 }
 
 void print_all(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile *oui;
 	t_pile *non;
+	t_pile *o;
 	
 	oui = *pile_a;
+	o = *pile_a;
 	non = *pile_b;
 	printf("\n");
 	printf("\n/ PILE A /\n");
@@ -80,6 +94,12 @@ void print_all(t_pile **pile_a, t_pile **pile_b)
 		printf("%d===>", oui->content);
 		oui = oui->next;
 	}
+	/*printf("index\n");
+	while (o != NULL)
+	{
+		printf("%d===>", o->index);
+		o = o->next;
+	}*/
 	printf("\n/ PILE B /\n");
 	while (non != NULL)
 	{
