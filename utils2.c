@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:56:28 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/29 19:11:20 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/30 18:01:21 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	lst_cont(t_pile **pile)
 		tmp = tmp->next;
 	return (tmp->content);
 }
+
 void	tri_5(t_pile **pile_a, t_pile **pile_b, int *tab)
 {
 	t_pile *tmp;
@@ -102,6 +103,7 @@ void	tri_5(t_pile **pile_a, t_pile **pile_b, int *tab)
 
 	tmp = *pile_a;
 	oui = *pile_b;
+	printf("%d", tab[2]);
 	while (lstsize(*pile_a) != 3)
 	{
 		if (tab[2] > lst_cont(pile_a))
@@ -109,16 +111,13 @@ void	tri_5(t_pile **pile_a, t_pile **pile_b, int *tab)
 			push_b(pile_a, pile_b);
 			print_all(pile_a, pile_b);
 		}
-		else 
+		else
 			rotate_a(pile_a);
-		tmp = tmp->next;
 	}
-	
 	tri_3(pile_a);
 	if ((*pile_b)->content > (*pile_b)->next->content)
 		swap_b(pile_b);
 	push_a(pile_a, pile_b);
 	push_a(pile_a, pile_b);
-	
-}	
-
+	printf("oui");
+}

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/29 19:55:41 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/30 18:26:12 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int is_double(int *tab);
 int is_number(char **tab);
 int is_max_size(int *tab);
 
-int tri(t_pile **pile_a, t_pile **pile_b, int *tab);
+void tri(t_pile **pile_a, t_pile **pile_b, int *tab);
 int last_lst(int nb, t_pile **pile_a, t_pile **pile_b);
 void print_all(t_pile **pile_a, t_pile **pile_b);
 int	lstsize(t_pile *lst);
@@ -61,7 +61,8 @@ void add_index(t_pile **pile_a, t_pile **pile_b);
 void	tri_5(t_pile **pile_a, t_pile **pile_b, int *tab);
 int	lst_cont(t_pile **pile);
 void    tri_g(t_pile **pile_a, t_pile **pile_b, int *tab, int size);
-void suivant(t_pile **pile_a, t_pile **pile_b, int *tab, int size);
+void mid(t_pile **pile_a, t_pile **pile_b, int *tab, int size);
+int	lst_cont(t_pile **pile);
 
 
 
