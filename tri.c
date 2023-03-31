@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:46:34 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/30 18:29:46 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/31 18:56:03 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,16 +86,34 @@ int  inf(t_pile **pile, int mid)
     return (0);
 }
 
+int find_min(t_pile **pile_a, t_pile **pile_b, int *tab)
+{
+    t_pile *tmp;
+    int i;
 
+    tmp = *pile_a;
+    i = tmp->content;
+    while (tmp->next != NULL)
+    {
+        if (tmp->content > tmp->next->content)
+            i = tmp->next->content; 
+        tmp = tmp->next;
+    }
+    return (i);
+}
 
 void    tri(t_pile **pile_a, t_pile **pile_b, int *tab)
 {
     int i;
     t_pile *tmp;
-    
+    int min;
+
+    min = find_min(pile_a, pile_b, tab);
     tmp = *pile_a;
-    while (tab[0] != tmp->content)
+    while (min != tmp->content)
+    {
         tmp = tmp->next;
+    }
     i = tmp->content;
     while (lst_cont(pile_a) != i)
         rotate_a(pile_a);
