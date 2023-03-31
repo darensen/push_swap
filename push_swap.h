@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/30 18:26:12 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:46:57 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	lst_cont(t_pile **pile);
 void    tri_g(t_pile **pile_a, t_pile **pile_b, int *tab, int size);
 void mid(t_pile **pile_a, t_pile **pile_b, int *tab, int size);
 int	lst_cont(t_pile **pile);
+void choix(t_pile **pile_a, t_pile **pile_b, int *tab);
 
 
 
