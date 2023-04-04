@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:17:30 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/27 13:37:21 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/26 19:20:29 by abeaudui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,22 @@ void push_number(t_pile **pile_a, int new_data)
 		return ;
 	
 	new_element->content = new_data;
+
 	new_element->next = NULL;
 	pile_addback(pile_a, new_element);
+}
+
+int	lstsize(t_pile *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
 
 int *fill_tab(char **av, int ac)

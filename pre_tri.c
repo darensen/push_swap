@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   pre_tri.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 17:48:07 by dsenatus          #+#    #+#             */
-/*   Updated: 2022/12/02 14:47:23 by dsenatus         ###   ########.fr       */
+/*   Created: 2023/03/26 18:42:14 by abeaudui          #+#    #+#             */
+/*   Updated: 2023/03/26 19:08:42 by abeaudui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int *sorted_tab(int *tab)
 {
-	int	i;
-
+	int i;
+	int j;
+	int temp;
+	
+	j = 0;
 	i = 0;
-	while (lst)
+	while(tab[i + 1])
 	{
-		lst = lst->next;
-		i++;
+		j = i + 1;
+		if(tab[i] > tab[j])
+		{
+			temp = tab[j];
+			tab[j] = tab[i];
+			tab[i] = temp;
+			i = 0;
+		}
+		else
+			i++;
 	}
-	return (i);
+	return(tab);
 }

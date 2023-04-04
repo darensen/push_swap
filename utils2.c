@@ -3,121 +3,86 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 17:56:28 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/30 18:01:21 by dsenatus         ###   ########.fr       */
+/*   Created: 2023/03/22 19:35:54 by arnaud            #+#    #+#             */
+/*   Updated: 2023/03/26 19:47:06 by abeaudui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(int *a, int *b)
+int find_biggest(t_pile **pile)
 {
-	int	c;
-
-	c = *a;
-	*a = *b;
-	*b = c;
+	int max;
+	t_pile *temp;
+	
+	temp = *pile;
+	max = temp->content;
+	while (temp->next != NULL)
+	{
+		if (temp->content > max)
+			max = temp->content;
+		temp = temp->next;
+	}
+	return(max);
 }
 
-int	*ft_sort_int_tab(int *tab, int size)
+int find_smallest(t_pile **pile)
 {
-	int	i;
-	int	j;
-	int *tabb;
-
-	i = 0;
-	tabb = malloc(sizeof(int) * size);
-	while (i != size)
+	int min;
+	t_pile *temp;
+	
+	temp = *pile;
+	min = temp->content;
+	while (temp->next != NULL)
 	{
-		tabb[i] = tab[i];
-		i++;
+		if (temp->content < min)
+			min = temp->content;
+		temp = temp->next;
 	}
-	i = 0;
-	while (i != size)
-	{
-		j = i + 1;
-		while (j != size)
-		{
-			if (tabb[i] > tabb[j])
-				ft_swap(&tabb[i], &tabb[j]);
-			j++;
-		}
-		i++;
-	}
-	return (tabb);
-}
-void tri_3(t_pile **pile_a)
-{
-    t_pile *tmp;
-    
-    tmp = *pile_a;
-	if (tmp->content < tmp->next->content
-		&& tmp->next->content < tmp->next->next->content
-		&& tmp->content < tmp->next->next->content) // 123
-	{
-		reverse_rotate_a(pile_a);
-		swap_a(pile_a);
-	}
-	else if (tmp->content > tmp->next->content
-		&& tmp->next->content < tmp->next->next->content
-		&& tmp->content < tmp->next->next->content) // 213
-		reverse_rotate_a(pile_a);
-	else if (tmp->content > tmp->next->content
-		&& tmp->next->content < tmp->next->next->content
-		&& tmp->content > tmp->next->next->content) // 312 ok
-		{
-			swap_a(pile_a);
-		}
-	else if (tmp->content < tmp->next->content
-		&& tmp->next->content > tmp->next->next->content
-		&& tmp->content < tmp->next->next->content) // 132
-	{
-		rotate_a(pile_a);
-	}
-	else if (tmp->content < tmp->next->content
-		&& tmp->next->content > tmp->next->next->content
-		&& tmp->content > tmp->next->next->content) // 231
-		{
-			rotate_a(pile_a);
-			swap_a(pile_a);
-		}
+	return(min);
 }
 
-int	lst_cont(t_pile **pile)
+t_pile *add_index_a(t_pile **pile_a)
 {
-	t_pile *tmp;
-
-	tmp = *pile;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	return (tmp->content);
-}
-
-void	tri_5(t_pile **pile_a, t_pile **pile_b, int *tab)
-{
-	t_pile *tmp;
-	t_pile *oui;
+	t_pile *temp1;
 	int i;
-
-	tmp = *pile_a;
-	oui = *pile_b;
-	printf("%d", tab[2]);
-	while (lstsize(*pile_a) != 3)
+	
+	i = 0;
+	temp1 = *pile_a;
+	while (temp1->next != NULL )
 	{
-		if (tab[2] > lst_cont(pile_a))
-		{
-			push_b(pile_a, pile_b);
-			print_all(pile_a, pile_b);
-		}
-		else
-			rotate_a(pile_a);
+		temp1->index = i;
+		temp1 = temp1->next;
+		i++;
 	}
-	tri_3(pile_a);
-	if ((*pile_b)->content > (*pile_b)->next->content)
-		swap_b(pile_b);
-	push_a(pile_a, pile_b);
-	push_a(pile_a, pile_b);
-	printf("oui");
+	temp1->index = i;
+
+	return(temp1);
+
+}
+
+t_pile *add_index_b(t_pile **pile_b)
+{
+	t_pile *temp1;
+	int i;
+	
+	i = 0;
+	temp1 = *pile_b;
+	while (temp1->next != NULL )
+	{
+		temp1->index = i;
+		temp1 = temp1->next;
+		i++;
+	}
+	temp1->index = i;
+	return(temp1);
+
+}
+
+void add_index(t_pile **pile_a, t_pile **pile_b)
+{
+	add_index_a(pile_a);
+	add_index_b(pile_b);
 }

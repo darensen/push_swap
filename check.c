@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:29:09 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/22 15:02:29 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:33:07 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,20 @@ int is_double(int *tab)
 	return (0);	
 }
 
-int is_number(char **str)
+int is_number(char **tab)
 {
 	int i;
 	int j;
 
 	i = 1;
-	while (str[i])
+	while (tab[i])
 	{
 		j = 0;
-		while (str[i][j])
+		while (tab[i][j])
 		{
-			if (j == 0 && str[i][j] == '-')
+			if(tab[i][j] == '-' && j == 0)
 				j++;
-			if (ft_isdigit(str[i][j]) == 1)
+			if (ft_isdigit(tab[i][j]) == 1)
 				return (1);
 			j++;
 		}

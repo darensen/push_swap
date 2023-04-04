@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:00:25 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/03/20 15:19:11 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:45:36 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void rotate_a(t_pile **pile)
 {
+	printf("ra\n");
 	t_pile *tmp;
 	int i;
-	if (!(*pile)->next)
+	if ((*pile)->next == NULL)
 		return ;
 	tmp = *pile;
 	i = tmp->content;
@@ -30,6 +31,7 @@ void rotate_a(t_pile **pile)
 
 void rotate_b(t_pile **pile)
 {
+	printf("rb\n");
 	t_pile *tmp;
 	int i;
 	if (!(*pile)->next)

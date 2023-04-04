@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:31:32 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/03/22 15:57:33 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:03:06 by arnaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void push_b(t_pile **pile_a, t_pile **pile_b)
 {
-	
+	printf("pb\n");
 	t_pile *temp;
 	temp = *pile_a;
-	
-	if (!temp)
+	if(temp == NULL)
 		return ;
 	if(temp->next == NULL)
 	{
@@ -32,17 +31,15 @@ void push_b(t_pile **pile_a, t_pile **pile_b)
 	t_pile *second_to_last = temp;
 	t_pile *last = temp->next;
 	second_to_last->next = NULL;
-	
 	push_number(pile_b, last->content);
 }
 
 void push_a(t_pile **pile_a, t_pile **pile_b)
 {
-	
+	printf("pa\n");
 	t_pile *temp;
-	
 	temp = *pile_b;
-	if (!temp)
+	if(temp == NULL)
 		return ;
 	if(temp->next == NULL)
 	{
@@ -56,6 +53,5 @@ void push_a(t_pile **pile_a, t_pile **pile_b)
 	t_pile *second_to_last = temp;
 	t_pile *last = temp->next;
 	second_to_last->next = NULL;
-	
 	push_number(pile_a, last->content);
 }
