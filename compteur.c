@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:52:59 by lusezett          #+#    #+#             */
-/*   Updated: 2023/04/05 15:31:28 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:54:55 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,14 @@ t_struct optimal_bloc(t_pile **pile_a, t_pile **pile_b)
     tab.val = temp->content;
     while(temp)
     {
+        printf("tmp = %d\n", temp->index);
         if(how_many_moves(search(pile_a, temp->content), temp->index, pile_a, pile_b) < tab.calcul) // pour chaque element de la pile B, il va chercher dans la pile a l'element le plus proche et trouver celui qui coute le moins de coups a envoyer
         {
             tab.calcul = how_many_moves(search(pile_a, temp->content), temp->index, pile_a, pile_b);
             tab.val = temp->content;
             tab.index_a = search(pile_a, temp->content);
             tab.index_b = temp->index;
+            printf("index a= %d index = b %d\n", tab.index_a, temp->index);
         }
         temp = temp->next;    
     }
@@ -94,12 +96,7 @@ void exec_if(t_pile **pile_a, t_pile **pile_b)
 
     tab = optimal_bloc(pile_a, pile_b);
     combo = which_combo(tab.index_a, tab.index_b, pile_a, pile_b);
-
-
-   printf("combo = %d\n", combo);
-
-
-    
+    //printf("combo = %d\n", combo);
     if (combo == 0)
 		mouv_if_rr(pile_a, pile_b, tab);
 	if (combo == 1)
@@ -118,12 +115,10 @@ void exec(t_pile **pile_a, t_pile**pile_b)
     add_index(pile_a, pile_b);
     i = pile_last(pile_b)->index;
     print_all(pile_a, pile_b);
-    while(i != 0)
+    while(i != -1)
     {
         add_index(pile_a, pile_b);
         exec_if(pile_a, pile_b);
         i--;
-    }
-    add_index(pile_a, pile_b);
-    
+    }  
 }

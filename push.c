@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:31:32 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/03/30 15:03:06 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/04/05 16:30:21 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void push_b(t_pile **pile_a, t_pile **pile_b)
 {
-	printf("pb\n");
+	//printf("pb\n");
 	t_pile *temp;
 	temp = *pile_a;
 	if(temp == NULL)
@@ -36,7 +36,7 @@ void push_b(t_pile **pile_a, t_pile **pile_b)
 
 void push_a(t_pile **pile_a, t_pile **pile_b)
 {
-	printf("pa\n");
+	//printf("pa\n");
 	t_pile *temp;
 	temp = *pile_b;
 	if(temp == NULL)

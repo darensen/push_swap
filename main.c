@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/05 15:33:37 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:34:54 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int ac, char **av)
 		}
 	second_tab = sorted_tab(tab);	
 	algo(&pile_a, &pile_b, second_tab);
+	tri_3(&pile_a);
 	exec(&pile_a, &pile_b);	
 	
 	
