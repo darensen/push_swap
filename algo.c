@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:09:37 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/04 18:46:18 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:14:01 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void algo(t_pile **pile_a, t_pile **pile_b, int *tab)
 
 		}	
 	else if(lstsize(*pile_a) > 5)
-	{	
+	{
 		while(lstsize(*pile_a) != 3)
 		{
-			if ((lst_cont(pile_a) != tab[0]) && (lst_cont(pile_a) != len) && (lst_cont(pile_a) != len /2))
+			if ((lst_cont(pile_a) != tab[0]) && (lst_cont(pile_a) != tab[len - 1]) && (lst_cont(pile_a) != tab[len /2]))
 				push_b(pile_a, pile_b);
 			else
 				rotate_a(pile_a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lusezett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/04 17:01:46 by lusezett         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:12:33 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@ typedef struct s_pile
 	
 }		t_pile;
 
+typedef struct s_struct
+{
+	int				index_a;
+	int				index_b;
+	int				calcul;
+	int				val;
+	int				imaxa;
+	int				imaxb;
+	int				mouv;
+}					t_struct;
+
 int main(int ac, char **av);
 
 // OPERATIONS
@@ -43,6 +54,7 @@ void rotate(t_pile **pile);
 void reverse_rotate_a(t_pile **pile);
 void reverse_rotate_b(t_pile **pile);
 void rrr(t_pile **pile_a, t_pile **pile_b);
+void rr(t_pile **pile_a, t_pile **pile_b);
 
 // UTILS
 void push_number(t_pile **first, int new_data);
@@ -66,6 +78,7 @@ int find_smallest(t_pile **pile);
 int find_biggest(t_pile **pile);
 int    lst_cont(t_pile **pile);
 int search(t_pile **pile, int val);
+t_pile	*pile_last(t_pile **lst);
 
 
 // ALGO
@@ -73,5 +86,16 @@ void    tri_4(t_pile **pile_a, t_pile **pile_b, int *tab);
 void algo(t_pile **pile_a, t_pile **pile_b, int *tab);
 void tri_5(t_pile **pile_a, t_pile **pile_b, int *tab);
 void tri_3(t_pile **pile_a);
+
+
+void exec_if(t_pile **pile_a, t_pile **pile_b);
+t_struct optimal_bloc(t_pile **pile_a, t_pile **pile_b);
+int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b);
+int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b) ;
+void	mouv_if_rrr(t_pile **pile_a, t_pile **pile_b, t_struct info);
+void	mouv_if_rr(t_pile **pile_a, t_pile **pile_b, t_struct tab);
+void	mouv_if_rrarb(t_pile **pile_a, t_pile **pile_b, t_struct tab);
+void	mouv_if_rarrb(t_pile **pile_a, t_pile **pile_b, t_struct tab);
+void exec(t_pile **pile_a, t_pile**pile_b);
 
 #endif

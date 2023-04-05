@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lusezett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:11:21 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/04 17:19:16 by lusezett         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:30:34 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,6 @@ int search(t_pile **pile, int val)
 		}
 		temp = temp->next;
 			
-	}
-	printf("%d", i);
-	
-
-
-
-	t_pile *oui;
-	oui = *pile;
-	printf("\n");
-	printf("\n/ PILE A /\n");
-	while (oui != NULL)
-	{
-		printf("| content is %d |", oui->content);		
-		printf("| index is %d |", oui->index);
-		printf("\n");
-
-		oui = oui->next;
 	}
 	return(i);
 

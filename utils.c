@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:17:30 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/26 19:20:29 by abeaudui         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:42:44 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pile	*pile_last(t_pile *lst)
+t_pile	*pile_last(t_pile **pile)
 {
+	t_pile *lst;
+
+	lst = *pile;
 	if (!lst)
 		return (0);
 	while (lst->next)
@@ -30,7 +33,7 @@ void	pile_addback(t_pile **lst, t_pile *new)
 		*lst = new;
 	else
 	{
-		last = pile_last(*(lst));
+		last = pile_last(lst);
 		last->next = new;
 	}
 }

@@ -2,7 +2,7 @@
 
 void swap_a(t_pile **pile)
 {
-	printf("sa");
+	//printf("sa");
 	t_pile *temp = *pile;
 	int i = temp->content;
 	t_pile *third_to_last;
@@ -29,7 +29,7 @@ void swap_a(t_pile **pile)
 
  void swap_b(t_pile **pile)
  {
-	printf("sb");
+	//printf("sb");
 	t_pile *temp = *pile;
 	int i = temp->content;
 	t_pile *third_to_last;

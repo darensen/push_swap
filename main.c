@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/04 19:11:05 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:33:37 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,14 @@ int main(int ac, char **av)
 			//}
 		}
 	second_tab = sorted_tab(tab);	
-	//algo(&pile_a, &pile_b, second_tab);
-	add_index_a(&pile_a);
-	search(&pile_a, 50);
+	algo(&pile_a, &pile_b, second_tab);
+	exec(&pile_a, &pile_b);	
+	
+	
+	
+	
+	//add_index(&pile_a, &pile_b);
+	print_all(&pile_a, &pile_b);
 	return(0);
 }
 
