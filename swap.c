@@ -4,11 +4,12 @@ void swap_a(t_pile **pile)
 {
 	//printf("sa");
 	t_pile *temp = *pile;
-	int i = temp->content;
 	t_pile *third_to_last;
 	t_pile *last;
 	t_pile *second_to_last;
-
+	int i;
+	
+	i = temp->content;
 	if (!pile)
 		return ;
 	if (temp->next->next == NULL)

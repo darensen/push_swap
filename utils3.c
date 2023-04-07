@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:11:21 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/05 15:30:34 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:55:58 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ int    lst_cont(t_pile **pile)
 }
 
 int search(t_pile **pile, int val)
-
 {
-	
 	t_pile *temp;
 	int i;
 	int j;
@@ -72,10 +70,8 @@ int search(t_pile **pile, int val)
 			j = temp->content;
 			i = temp->index;
 		}
-		temp = temp->next;
-			
+		temp = temp->next;	
 	}
+	//printf("\nj = %d i = %d", j, i);
 	return(i);
-
-	
 }

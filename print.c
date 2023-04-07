@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lusezett <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:28:00 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/04 17:03:32 by lusezett         ###   ########.fr       */
+/*   Updated: 2023/04/07 13:21:32 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void print_all(t_pile **pile_a, t_pile **pile_b)
 	{
 		printf("| content is %d |", non->content);		
 		printf("| index is %d |", non->index);
-		printf("\n");		non = non->next;
+		printf("\n");		
+		non = non->next;
 	}	
 }
