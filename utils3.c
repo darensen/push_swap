@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:11:21 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/07 14:55:58 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:46:30 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,17 @@ int search(t_pile **pile, int val)
 	j = find_biggest(pile);
 	while(temp)
 	{
+		printf("non");
 		if(temp->content <= j && temp->content > val)
 		{
+			printf("oui");
 			j = temp->content;
 			i = temp->index;
 		}
 		temp = temp->next;	
 	}
-	//printf("\nj = %d i = %d", j, i);
+	printf("\nj = %d i = %d/n", j, i);
+	if (i == 32767)
+		return(find_smallest(pile));  
 	return(i);
 }

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:08:52 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/04/05 15:18:43 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:02:04 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void reverse_rotate_a(t_pile **pile)
 {
-    //printf("rra\n");
+  //  printf("rra\n");
     t_pile *temp;
     t_pile *first;
     t_pile *last;
@@ -36,7 +36,7 @@ void reverse_rotate_a(t_pile **pile)
 
 void reverse_rotate_b(t_pile **pile)
 {
-   // printf("rrb\n");
+    printf("rrb\n");
     if (!(*pile)->next)
         return ;
     t_pile *temp;

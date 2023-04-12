@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 19:35:54 by arnaud            #+#    #+#             */
-/*   Updated: 2023/03/26 19:47:06 by abeaudui         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:49:25 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int find_biggest(t_pile **pile)
 	
 	temp = *pile;
 	max = temp->content;
-	while (temp->next != NULL)
+	while (temp)
 	{
 		if (temp->content > max)
 			max = temp->content;
@@ -32,8 +32,10 @@ int find_smallest(t_pile **pile)
 {
 	int min;
 	t_pile *temp;
+	t_pile *tmp;
 	
 	temp = *pile;
+	tmp = *pile;
 	min = temp->content;
 	while (temp->next != NULL)
 	{
@@ -41,7 +43,12 @@ int find_smallest(t_pile **pile)
 			min = temp->content;
 		temp = temp->next;
 	}
-	return(min);
+	while(tmp)
+	{
+		if (min = tmp->content)
+			return(tmp->index);
+		tmp = tmp->next;
+	}
 }
 
 t_pile *add_index_a(t_pile **pile_a)

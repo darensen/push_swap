@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:52:59 by lusezett          #+#    #+#             */
-/*   Updated: 2023/04/07 18:23:05 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:20:33 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
         reverse_rotate_all = 1 + index_a;
     rarrb = 1 + index_a + (pile_last(pile_b)->index - index_b);
     rrarb = 1 + index_b + (pile_last(pile_a)->index - index_a);
+    printf("\nrotate all = %d,", rotate_all);
+    printf(" revesre rotate all = %d,", reverse_rotate_all);
+    printf(" rarrb = %d,", rarrb);
+    printf(" rrarb = %d\n", rrarb);
     if (reverse_rotate_all <= rarrb && reverse_rotate_all <= rotate_all && reverse_rotate_all <= rrarb)
 		return (0);
 	if (rotate_all <= rarrb && rotate_all <= reverse_rotate_all && rotate_all <= rrarb)
@@ -41,13 +45,14 @@ int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
 
 int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
 {
-    
+    add_index(pile_a, pile_b);
+
     int reverse_rotate_all;
     int rotate_all;
     int rarrb;
     int rrarb;
 
-    printf("valeur de A = %d Valeur de B = %d", index_a, index_b);
+    printf("index de a = %d et index de b = %d\n ", index_a, index_b);
     rotate_all = (pile_last(pile_b)->index - index_b);
     if ((pile_last(pile_a)->index - index_a) < (pile_last(pile_b)->index - index_b))
         rotate_all = pile_last(pile_a)->index;
@@ -56,10 +61,6 @@ int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
         reverse_rotate_all = 1 + index_a;
     rarrb = index_a + (pile_last(pile_b)->index - index_b) + 1;
     rrarb = index_b + (pile_last(pile_a)->index - index_a) + 1;
-    printf("\nrotate all = %d,", rotate_all);
-    printf(" revesre rotate all = %d,", reverse_rotate_all);
-    printf(" rarrb = %d,", rarrb);
-    printf(" rrarb = %d\n", rrarb);
     if (reverse_rotate_all < rarrb && reverse_rotate_all < rotate_all && reverse_rotate_all < rrarb)
 		return (reverse_rotate_all);
 	if (rotate_all < rarrb && rotate_all < reverse_rotate_all && rotate_all < rrarb)
@@ -85,6 +86,7 @@ t_struct optimal_bloc(t_pile **pile_a, t_pile **pile_b)
 
         //a = how_many_moves(search(pile_a, temp->content), temp->index, pile_a, pile_b);
         //printf("a = %d\n", a);
+        //printf("index de b = %d\n", temp->index);
         if(how_many_moves(search(pile_a, temp->content), temp->index, pile_a, pile_b) < tab.calcul) // pour chaque element de la pile B, il va chercher dans la pile a l'element le plus proche et trouver celui qui coute le moins de coups a envoyer
         {
             //printf("tmp2 = %d\n", temp->index);
@@ -103,15 +105,16 @@ t_struct optimal_bloc(t_pile **pile_a, t_pile **pile_b)
 
 void exec_if(t_pile **pile_a, t_pile **pile_b)
 {
+
     t_struct tab;
     int combo;
 
     tab = optimal_bloc(pile_a, pile_b);
     combo = which_combo(tab.index_a, tab.index_b, pile_a, pile_b);
     //printf("combo = %d\n", combo);
-    if (combo == 1)
+    if (combo == 0)
 		mouv_if_rr(pile_a, pile_b, tab);
-	if (combo == 0)
+	if (combo == 1)
 		mouv_if_rrr(pile_a, pile_b, tab);
 	if (combo == 2)
 		mouv_if_rarrb(pile_a, pile_b, tab);
@@ -126,12 +129,12 @@ void exec(t_pile **pile_a, t_pile**pile_b)
     
     add_index(pile_a, pile_b);
     i = pile_last(pile_b)->index;
-    print_all(pile_a, pile_b);
     while(i != -1)
     {
+        printf("oui");
         add_index(pile_a, pile_b);
+        print_all(pile_a, pile_b);
         exec_if(pile_a, pile_b);
         i--;
     }
-   
 }

@@ -6,15 +6,28 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:31:32 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/05 16:30:21 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:51:50 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void push_number2(t_pile **pile_a, int new_data)
+{
+	
+	t_pile *new_element = malloc(sizeof(t_pile));
+	if (!new_element)
+		return ;
+	
+	new_element->content = new_data;
+
+	new_element->next = NULL;
+	pile_addfront(pile_a, new_element);
+}
+
 void push_b(t_pile **pile_a, t_pile **pile_b)
 {
-	//printf("pb\n");
+	printf("pb\n");
 	t_pile *temp;
 	temp = *pile_a;
 	if(temp == NULL)
@@ -31,12 +44,12 @@ void push_b(t_pile **pile_a, t_pile **pile_b)
 	t_pile *second_to_last = temp;
 	t_pile *last = temp->next;
 	second_to_last->next = NULL;
-	push_number(pile_b, last->content);
+	push_number2(pile_b, last->content);
 }
 
 void push_a(t_pile **pile_a, t_pile **pile_b)
 {
-	//printf("pa\n");
+	printf("pa\n");
 	t_pile *temp;
 	temp = *pile_b;
 	if(temp == NULL)
@@ -53,5 +66,5 @@ void push_a(t_pile **pile_a, t_pile **pile_b)
 	t_pile *second_to_last = temp;
 	t_pile *last = temp->next;
 	second_to_last->next = NULL;
-	push_number(pile_a, last->content);
+	push_number2(pile_a, last->content);
 }

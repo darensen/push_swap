@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/05 15:12:33 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:27:14 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int find_biggest(t_pile **pile);
 int    lst_cont(t_pile **pile);
 int search(t_pile **pile, int val);
 t_pile	*pile_last(t_pile **lst);
+void	pile_addfront(t_pile **lst, t_pile *new);
 
 
 // ALGO
