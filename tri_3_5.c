@@ -3,50 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   tri_3_5.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arnaud <arnaud@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:26:09 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/03/30 17:53:19 by arnaud           ###   ########.fr       */
+/*   Updated: 2023/04/12 19:31:45 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void tri_3(t_pile **pile_a)
+void	tri_3(t_pile **pile_a)
 {
-    t_pile *tmp;
-    
-    tmp = *pile_a;
-    if (tmp->content < tmp->next->content
-        && tmp->next->content < tmp->next->next->content
-        && tmp->content < tmp->next->next->content) // 123
-    {
-        reverse_rotate_a(pile_a);
-        swap_a(pile_a);
-    }
-    else if (tmp->content > tmp->next->content
-        && tmp->next->content < tmp->next->next->content
-        && tmp->content < tmp->next->next->content) // 213
-        reverse_rotate_a(pile_a);
-    else if (tmp->content > tmp->next->content
-        && tmp->next->content < tmp->next->next->content
-        && tmp->content > tmp->next->next->content) // 312 ok
-        {
-            swap_a(pile_a);
-        }
-    else if (tmp->content < tmp->next->content
-        && tmp->next->content > tmp->next->next->content
-        && tmp->content < tmp->next->next->content) // 132
-    {
-        rotate_a(pile_a);
-    }
-    else if (tmp->content < tmp->next->content
-        && tmp->next->content > tmp->next->next->content
-        && tmp->content > tmp->next->next->content) // 231
-        {
-            rotate_a(pile_a);
-            swap_a(pile_a);
-        }
+	t_pile	*tmp;
+	int		a;
+	int		b;
+	int		c;
+
+	tmp = *pile_a;
+	a = tmp->content;
+	b = tmp->next->content;
+	c = tmp->next->next->content;
+	if (a > b && b > c && a > c)
+	{
+		rotate_a(pile_a);
+		swap_a(pile_a);
+	}
+	else if (a > b && b < c && a < c)
+		swap_a(pile_a);
+	else if (a > b && b < c && a > c)
+		rotate_a(pile_a);
+	else if (a < b && b > c && a < c)
+	{
+		reverse_rotate_a(pile_a);
+		swap_a(pile_a);
+	}
+	else if (a < b && b > c && a > c)
+		reverse_rotate_a(pile_a);
 }
 
 void    tri_4(t_pile **pile_a, t_pile **pile_b, int *tab)
