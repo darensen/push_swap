@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:52:59 by lusezett          #+#    #+#             */
-/*   Updated: 2023/04/12 18:20:33 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:10:30 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
     reverse_rotate_all = 1 + index_b;
     if (index_a < index_b)
         reverse_rotate_all = 1 + index_a;
-    rarrb = 1 + index_a + (pile_last(pile_b)->index - index_b);
-    rrarb = 1 + index_b + (pile_last(pile_a)->index - index_a);
+    rarrb = index_a + (pile_last(pile_b)->index - index_b) + 1;
+    rrarb = index_b + (pile_last(pile_a)->index - index_a) + 1;
     printf("\nrotate all = %d,", rotate_all);
     printf(" revesre rotate all = %d,", reverse_rotate_all);
     printf(" rarrb = %d,", rarrb);
@@ -45,8 +45,6 @@ int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
 
 int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
 {
-    add_index(pile_a, pile_b);
-
     int reverse_rotate_all;
     int rotate_all;
     int rarrb;
@@ -111,10 +109,10 @@ void exec_if(t_pile **pile_a, t_pile **pile_b)
 
     tab = optimal_bloc(pile_a, pile_b);
     combo = which_combo(tab.index_a, tab.index_b, pile_a, pile_b);
-    //printf("combo = %d\n", combo);
-    if (combo == 0)
+    printf("combo = %d\n", combo);
+    if (combo == 1)
 		mouv_if_rr(pile_a, pile_b, tab);
-	if (combo == 1)
+	if (combo == 0)
 		mouv_if_rrr(pile_a, pile_b, tab);
 	if (combo == 2)
 		mouv_if_rarrb(pile_a, pile_b, tab);
