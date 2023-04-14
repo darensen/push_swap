@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:52:59 by lusezett          #+#    #+#             */
-/*   Updated: 2023/04/14 17:10:30 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:02:17 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,56 +16,56 @@
 int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b) 
 {
 
-    int reverse_rotate_all;
     int rotate_all;
+    int revrse_rotate_all;
     int rarrb;
     int rrarb;
 
-    rotate_all = (pile_last(pile_b)->index - index_b);
-    if (pile_last(pile_a)->index - index_a < rotate_all)
-        rotate_all = pile_last(pile_a)->index;
-    reverse_rotate_all = 1 + index_b;
+    revrse_rotate_all = (pile_last(pile_b)->index - index_b);
+    if (pile_last(pile_a)->index - index_a < revrse_rotate_all)
+        revrse_rotate_all = pile_last(pile_a)->index;
+    rotate_all = 1 + index_b;
     if (index_a < index_b)
-        reverse_rotate_all = 1 + index_a;
+        rotate_all = 1 + index_a;
     rarrb = index_a + (pile_last(pile_b)->index - index_b) + 1;
     rrarb = index_b + (pile_last(pile_a)->index - index_a) + 1;
-    printf("\nrotate all = %d,", rotate_all);
-    printf(" revesre rotate all = %d,", reverse_rotate_all);
+    printf("\nrotate all = %d,", revrse_rotate_all);
+    printf(" revesre rotate all = %d,", rotate_all);
     printf(" rarrb = %d,", rarrb);
     printf(" rrarb = %d\n", rrarb);
-    if (reverse_rotate_all <= rarrb && reverse_rotate_all <= rotate_all && reverse_rotate_all <= rrarb)
+    if (rotate_all <= rarrb && rotate_all <= revrse_rotate_all && rotate_all <= rrarb)
 		return (0);
-	if (rotate_all <= rarrb && rotate_all <= reverse_rotate_all && rotate_all <= rrarb)
+	if (revrse_rotate_all <= rarrb && revrse_rotate_all <= rotate_all && revrse_rotate_all <= rrarb)
 		return (1);
-	if (rarrb <= rrarb && rarrb <= rotate_all && rarrb <= reverse_rotate_all)
+	if (rarrb <= rrarb && rarrb <= revrse_rotate_all && rarrb <= rotate_all)
 		return (2);
-	if (rrarb <= rarrb && rrarb <= rotate_all && rrarb <= reverse_rotate_all)
+	if (rrarb <= rarrb && rrarb <= revrse_rotate_all && rrarb <= rotate_all)
 		return (3);
 }
 
 int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
 {
-    int reverse_rotate_all;
     int rotate_all;
+    int revrse_rotate_all;
     int rarrb;
     int rrarb;
 
     printf("index de a = %d et index de b = %d\n ", index_a, index_b);
-    rotate_all = (pile_last(pile_b)->index - index_b);
+    revrse_rotate_all = (pile_last(pile_b)->index - index_b);
     if ((pile_last(pile_a)->index - index_a) < (pile_last(pile_b)->index - index_b))
-        rotate_all = pile_last(pile_a)->index;
-    reverse_rotate_all = 1 + index_b;
+        revrse_rotate_all = pile_last(pile_a)->index;
+    rotate_all = 1 + index_b;
     if (index_a < index_b)
-        reverse_rotate_all = 1 + index_a;
+        rotate_all = 1 + index_a;
     rarrb = index_a + (pile_last(pile_b)->index - index_b) + 1;
     rrarb = index_b + (pile_last(pile_a)->index - index_a) + 1;
-    if (reverse_rotate_all < rarrb && reverse_rotate_all < rotate_all && reverse_rotate_all < rrarb)
-		return (reverse_rotate_all);
-	if (rotate_all < rarrb && rotate_all < reverse_rotate_all && rotate_all < rrarb)
+    if (rotate_all < rarrb && rotate_all < revrse_rotate_all && rotate_all < rrarb)
 		return (rotate_all);
-	if (rarrb < rrarb && rarrb < rotate_all && rarrb < reverse_rotate_all)
+	if (revrse_rotate_all < rarrb && revrse_rotate_all < rotate_all && revrse_rotate_all < rrarb)
+		return (revrse_rotate_all);
+	if (rarrb < rrarb && rarrb < revrse_rotate_all && rarrb < rotate_all)
 		return (rarrb);
-	if (rrarb < rarrb && rrarb < rotate_all && rrarb < reverse_rotate_all)
+	if (rrarb < rarrb && rrarb < revrse_rotate_all && rrarb < rotate_all)
 		return (rrarb);
 }
 
@@ -110,9 +110,9 @@ void exec_if(t_pile **pile_a, t_pile **pile_b)
     tab = optimal_bloc(pile_a, pile_b);
     combo = which_combo(tab.index_a, tab.index_b, pile_a, pile_b);
     printf("combo = %d\n", combo);
-    if (combo == 1)
+    if (combo == 0)
 		mouv_if_rr(pile_a, pile_b, tab);
-	if (combo == 0)
+	if (combo == 1)
 		mouv_if_rrr(pile_a, pile_b, tab);
 	if (combo == 2)
 		mouv_if_rarrb(pile_a, pile_b, tab);

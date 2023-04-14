@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 14:28:49 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/04/14 17:26:31 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:01:13 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	mouv_if_rr(t_pile **pile_a, t_pile **pile_b, t_struct tab)
 
 
 	info = tab;
-	printf("VALEUR OUI OUI = %d ", info.);
+	//printf("VALEUR OUI OUI = %d ", info.);
 	while (info.index_a != 0 && info.index_b != 0)
 	{
 		rr(pile_a, pile_b);
