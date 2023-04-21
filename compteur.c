@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:52:59 by lusezett          #+#    #+#             */
-/*   Updated: 2023/04/21 18:26:59 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/21 20:38:16 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
     int rrarb;
 
     revrse_rotate_all = 1 + (pile_last(pile_b)->index - index_b);
-    if (pile_last(pile_a)->index - index_a < revrse_rotate_all)
+    if (pile_last(pile_a)->index - index_a > revrse_rotate_all)
         revrse_rotate_all =  1 + pile_last(pile_a)->index;
     rotate_all = index_b;
-    if (index_a < index_b)
+    if (index_a > index_b)
         rotate_all = index_a;
     rarrb = index_a + (pile_last(pile_b)->index - index_b) + 1;
     rrarb = index_b + (pile_last(pile_a)->index - index_a) + 1;
+    //printf("rrr = %d rr = %d rarrb = %d rrarb = %d", revrse_rotate_all, rotate_all, rarrb, rrarb);
     if (rotate_all <= rarrb && rotate_all <= revrse_rotate_all && rotate_all <= rrarb)
 		return (0);
 	if (revrse_rotate_all <= rarrb && revrse_rotate_all <= rotate_all && revrse_rotate_all <= rrarb)
@@ -48,7 +49,7 @@ int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
     int rrarb;
 
     revrse_rotate_all = 1 + (pile_last(pile_b)->index - index_b);
-    if ((pile_last(pile_a)->index - index_a) < (pile_last(pile_b)->index - index_b))
+    if ((pile_last(pile_a)->index - index_a) > (pile_last(pile_b)->index - index_b))
         revrse_rotate_all = pile_last(pile_a)->index;
     rotate_all = index_b;
     if (index_a < index_b)
@@ -96,6 +97,7 @@ void exec_if(t_pile **pile_a, t_pile **pile_b)
 
     tab = optimal_bloc(pile_a, pile_b);
     combo = which_combo(tab.index_a, tab.index_b, pile_a, pile_b);
+    printf("combo = %d", combo);
     if (combo == 0)
 		mouv_if_rr(pile_a, pile_b, tab);
 	if (combo == 1)
@@ -104,6 +106,10 @@ void exec_if(t_pile **pile_a, t_pile **pile_b)
 		mouv_if_rarrb(pile_a, pile_b, tab);
 	if (combo == 3)
 		mouv_if_rrarb(pile_a, pile_b, tab);
+    add_index_a(pile_a);
+    if (*pile_b)
+        add_index_b(pile_b);
+
 }
 
 
@@ -120,5 +126,5 @@ void exec(t_pile **pile_a, t_pile**pile_b)
         i--;
     }
     sorted_final(pile_a);
-    
+    print_all(pile_a, pile_b);
 }
