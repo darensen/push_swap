@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:11:21 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/14 15:37:56 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:05:07 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,28 @@ int tab_len(int *tab)
 	}
 	return(i);
 	
+}
+
+int is_sorted2(t_pile **pile_a)
+{
+	t_pile *tmp;
+
+	tmp = *pile_a;
+	while(tmp->next != NULL)
+	{
+		if(tmp->content > tmp->next->content)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+void sorted_final(t_pile **pile_a)
+{
+	while (is_sorted2(pile_a) == 1)
+	{
+		rotate_a(pile_a);
+	}
 }
 
 int	ft_mediane(int *tab)
@@ -72,7 +94,6 @@ int search(t_pile **pile, int val)
 		}
 		temp = temp->next;	
 	}
-	//printf("\nj = %d i = %d/n", j, i);
 	if (i == 32767)
 		return(find_smallest(pile));  
 	return(i);

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 15:28:00 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/12 19:04:25 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:36:31 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void print_all(t_pile **pile_a, t_pile **pile_b)
 	printf("\n/ PILE A /\n");
 	while (oui != NULL)
 	{
-		printf("%d===>", oui->content);		
+		printf("| content is %d |", oui->content);		
 		printf("| index is %d |", oui->index);
 		printf("\n");
 

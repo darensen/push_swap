@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/12 16:27:14 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:02:23 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include <stdio.h>
 #include <stdlib.h>
-#include "libft/libft.h"
 
 
 
@@ -83,9 +82,9 @@ void	pile_addfront(t_pile **lst, t_pile *new);
 
 
 // ALGO
-void    tri_4(t_pile **pile_a, t_pile **pile_b, int *tab);
+void    tri_4(t_pile **pile_a, t_pile **pile_b);
 void algo(t_pile **pile_a, t_pile **pile_b, int *tab);
-void tri_5(t_pile **pile_a, t_pile **pile_b, int *tab);
+void tri_5(t_pile **pile_a, t_pile **pile_b);
 void tri_3(t_pile **pile_a);
 
 
@@ -98,5 +97,14 @@ void	mouv_if_rr(t_pile **pile_a, t_pile **pile_b, t_struct tab);
 void	mouv_if_rrarb(t_pile **pile_a, t_pile **pile_b, t_struct tab);
 void	mouv_if_rarrb(t_pile **pile_a, t_pile **pile_b, t_struct tab);
 void exec(t_pile **pile_a, t_pile**pile_b);
+
+
+//ff
+void push_f(t_pile **pile_a, t_pile **pile_b);
+void sorted_final(t_pile **pile_a);
+int is_sorted2(t_pile **pile_a);
+int	ft_isdigit(char c);
+int	ft_atoi(const char *nptr);
+
 
 #endif

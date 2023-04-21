@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/14 16:51:52 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/21 18:32:55 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,22 @@ int main(int ac, char **av)
 	{
 		tab = fill_tab(av, ac);
 		if (is_double(tab) == 0 && is_max_size(tab) == 0)
-			{
+		{
 			while(i < ac - 1) 
 			{
 				push_number(&pile_a, tab[i]);
 				i++;
 			}
 		}
+		else
+		{
+			printf("error\n");
+			return (0);
+		}
 	}
-	second_tab = sorted_tab(tab);
-	print_all(&pile_a, &pile_b);	
+	second_tab = sorted_tab(tab);	
 	algo(&pile_a, &pile_b, second_tab);
-	tri_3(&pile_a);
-	exec(&pile_a, &pile_b);	
+	print_all(&pile_a, &pile_b);
 	return(0);
 }
 

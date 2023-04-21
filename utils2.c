@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 19:35:54 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/12 18:49:25 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:07:40 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ int find_smallest(t_pile **pile)
 	}
 	while(tmp)
 	{
-		if (min = tmp->content)
-			return(tmp->index);
+		if ((min = tmp->content))
+			return (tmp->index);
 		tmp = tmp->next;
 	}
+	return(0);
 }
 
 t_pile *add_index_a(t_pile **pile_a)
