@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:00:25 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/04/12 15:22:18 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:43:59 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void rotate_b(t_pile **pile)
 
 void rr(t_pile **pile_a, t_pile **pile_b)
 {
+	//printf("rr\n");
     rotate_a(pile_a);
     rotate_b(pile_b);
 }

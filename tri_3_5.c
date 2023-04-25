@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:26:09 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/21 16:58:00 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/25 19:03:35 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,46 +45,32 @@ void	tri_3(t_pile **pile_a)
 		reverse_rotate_a(pile_a);
 }
 
-void    tri_4(t_pile **pile_a, t_pile **pile_b)
+void    tri_4(t_pile **pile_a, t_pile **pile_b, int *tab)
 {
-    int min;
-
     while (lstsize(*pile_a) != 3)
-    {
-        if((*pile_a)->content == min)
-        {
+    {   
+        if((*pile_a)->content == tab[0])
+            pushb_f(pile_a, pile_b);
+       else 
             rotate_a(pile_a);
-            push_b(pile_a, pile_b);
-
-        }  
-        else 
-            rotate_a(pile_a);
-        min = find_smallest(pile_a);
     }
     print_all(pile_a, pile_b);
     tri_3(pile_a);
-    push_a(pile_a, pile_b);
+    push_f(pile_a, pile_b);
 }
 
-void    tri_5(t_pile **pile_a, t_pile **pile_b)
+void    tri_5(t_pile **pile_a, t_pile **pile_b, int *tab)
 {
-    int min;
-
     while (lstsize(*pile_a) != 3)
     {
-        if((*pile_a)->content == min)
-        {
-            rotate_a(pile_a);
-            push_b(pile_a, pile_b);
-
-        }  
+        if((*pile_a)->content < tab[2])
+            pushb_f(pile_a, pile_b);
         else 
             rotate_a(pile_a);
-        min = find_smallest(pile_a);
     }
     tri_3(pile_a);
-    if ((*pile_b)->content > (*pile_b)->next->content)
+    if ((*pile_b)->content < (*pile_b)->next->content)
         swap_b(pile_b);
-    push_a(pile_a, pile_b);
-    push_a(pile_a, pile_b);
+    push_f(pile_a, pile_b);
+    push_f(pile_a, pile_b);
 }

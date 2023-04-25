@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:11:21 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/21 20:37:31 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:03:32 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void sorted_final(t_pile **pile_a)
 {
 	while (is_sorted2(pile_a) == 1)
 	{
-		rotate_a(pile_a);
+		reverse_rotate_a(pile_a);
 	}
 }
 

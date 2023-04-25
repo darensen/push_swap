@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 16:52:59 by lusezett          #+#    #+#             */
-/*   Updated: 2023/04/21 20:38:16 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:27:25 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
         rotate_all = index_a;
     rarrb = index_a + (pile_last(pile_b)->index - index_b) + 1;
     rrarb = index_b + (pile_last(pile_a)->index - index_a) + 1;
-    //printf("rrr = %d rr = %d rarrb = %d rrarb = %d", revrse_rotate_all, rotate_all, rarrb, rrarb);
     if (rotate_all <= rarrb && rotate_all <= revrse_rotate_all && rotate_all <= rrarb)
 		return (0);
 	if (revrse_rotate_all <= rarrb && revrse_rotate_all <= rotate_all && revrse_rotate_all <= rrarb)
@@ -52,19 +51,19 @@ int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b)
     if ((pile_last(pile_a)->index - index_a) > (pile_last(pile_b)->index - index_b))
         revrse_rotate_all = pile_last(pile_a)->index;
     rotate_all = index_b;
-    if (index_a < index_b)
+    if (index_a > index_b)
         rotate_all = index_a;
     rarrb = index_a + (pile_last(pile_b)->index - index_b) + 1;
     rrarb = index_b + (pile_last(pile_a)->index - index_a) + 1;
-    if (rotate_all < rarrb && rotate_all < revrse_rotate_all && rotate_all < rrarb)
+    if (rotate_all <= rarrb && rotate_all <= revrse_rotate_all && rotate_all <= rrarb)
 		return (rotate_all);
-	if (revrse_rotate_all < rarrb && revrse_rotate_all < rotate_all && revrse_rotate_all < rrarb)
+	if (revrse_rotate_all <= rarrb && revrse_rotate_all <= rotate_all && revrse_rotate_all <= rrarb)
 		return (revrse_rotate_all);
-	if (rarrb < rrarb && rarrb < revrse_rotate_all && rarrb < rotate_all)
+	if (rarrb <= rrarb && rarrb <= revrse_rotate_all && rarrb <= rotate_all)
 		return (rarrb);
-	if (rrarb < rarrb && rrarb < revrse_rotate_all && rrarb < rotate_all)
+	if (rrarb <= rarrb && rrarb <= revrse_rotate_all && rrarb <= rotate_all)
 		return (rrarb);
-    return (0);
+    return (rotate_all);
 }
 
 t_struct optimal_bloc(t_pile **pile_a, t_pile **pile_b)
@@ -97,7 +96,7 @@ void exec_if(t_pile **pile_a, t_pile **pile_b)
 
     tab = optimal_bloc(pile_a, pile_b);
     combo = which_combo(tab.index_a, tab.index_b, pile_a, pile_b);
-    printf("combo = %d", combo);
+    //printf("combo = %d", combo);
     if (combo == 0)
 		mouv_if_rr(pile_a, pile_b, tab);
 	if (combo == 1)
@@ -106,10 +105,6 @@ void exec_if(t_pile **pile_a, t_pile **pile_b)
 		mouv_if_rarrb(pile_a, pile_b, tab);
 	if (combo == 3)
 		mouv_if_rrarb(pile_a, pile_b, tab);
-    add_index_a(pile_a);
-    if (*pile_b)
-        add_index_b(pile_b);
-
 }
 
 
@@ -126,5 +121,4 @@ void exec(t_pile **pile_a, t_pile**pile_b)
         i--;
     }
     sorted_final(pile_a);
-    print_all(pile_a, pile_b);
 }

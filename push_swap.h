@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/21 17:02:23 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:20:32 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ void	pile_addfront(t_pile **lst, t_pile *new);
 
 
 // ALGO
-void    tri_4(t_pile **pile_a, t_pile **pile_b);
+void    tri_4(t_pile **pile_a, t_pile **pile_b, int *tab);
 void algo(t_pile **pile_a, t_pile **pile_b, int *tab);
-void tri_5(t_pile **pile_a, t_pile **pile_b);
+void tri_5(t_pile **pile_a, t_pile **pile_b, int *tab);
 void tri_3(t_pile **pile_a);
 
 
@@ -101,6 +101,9 @@ void exec(t_pile **pile_a, t_pile**pile_b);
 
 //ff
 void push_f(t_pile **pile_a, t_pile **pile_b);
+void pushb_f(t_pile **pile_a, t_pile **pile_b);
+
+
 void sorted_final(t_pile **pile_a);
 int is_sorted2(t_pile **pile_a);
 int	ft_isdigit(char c);
