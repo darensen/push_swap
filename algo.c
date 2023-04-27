@@ -6,39 +6,37 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:09:37 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/25 19:20:01 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/27 20:31:00 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void algo(t_pile **pile_a, t_pile **pile_b, int *tab)
+void	algo(t_pile **a, t_pile **b, int *tab)
 {
-	int len;
-	
-	len = tab_len(tab);
-	if (lstsize(*pile_a) == 2)
+	if (lstsize(*a) == 2)
 	{
-		if((*pile_a)->content > (*pile_a)->next->content)
-			swap_a(pile_a);
+		if ((*a)->content > (*a)->next->content)
+			swap_a(a);
 	}
-	else if(lstsize(*pile_a) ==  3)
-			tri_3(pile_a);
-	else if(lstsize(*pile_a) == 4)
-			tri_4(pile_a, pile_b, tab);
-	else if(lstsize(*pile_a) == 5)
-			tri_5(pile_a, pile_b, tab);
-	else if(lstsize(*pile_a) > 5)
+	else if (lstsize(*a) == 3)
+		tri_3(a);
+	else if (lstsize(*a) == 4)
+		tri_4(a, b, tab);
+	else if (lstsize(*a) == 5)
+		tri_5(a, b, tab);
+	else if (lstsize(*a) > 5)
 	{
-		while(lstsize(*pile_a) != 3)
+		while (lstsize(*a) != 3)
 		{
-			if (((*pile_a)->content != tab[0]) && ((*pile_a)->content != tab[len / 2]) && ((*pile_a)->content != tab[len - 1]))
-				pushb_f(pile_a, pile_b);
+			if (((*a)->content != tab[0])
+				&& ((*a)->content != tab[tab_len(tab) / 2])
+				&& ((*a)->content != tab[tab_len(tab) - 1]))
+				push_b(a, b);
 			else
-				reverse_rotate_a(pile_a);
+				reverse_rotate_a(a);
 		}
-		tri_3(pile_a);
-		exec(pile_a, pile_b);
+		tri_3(a);
+		exec(a, b);
 	}
-	sorted_final(pile_a);
 }

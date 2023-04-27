@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/25 18:20:32 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:14:08 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,11 @@ void rr(t_pile **pile_a, t_pile **pile_b);
 // UTILS
 void push_number(t_pile **first, int new_data);
 int tab_len(int *tab);
-int	ft_mediane(int *tab);
 int last_content(t_pile **pile);
 t_pile *add_index_a(t_pile **pile_a);
 t_pile *add_index_b(t_pile **pile_b);
 void add_index(t_pile **pile_a, t_pile **pile_b);
 int *sorted_tab(int *tab);
-t_pile *find_adress(t_pile **pile_a, int mid);
 int is_sorted(t_pile **pile_a, int nb);
 void print_all(t_pile **pile_a, t_pile **pile_b);
 int is_double(int *tab);
@@ -90,7 +88,7 @@ void tri_3(t_pile **pile_a);
 
 void exec_if(t_pile **pile_a, t_pile **pile_b);
 t_struct optimal_bloc(t_pile **pile_a, t_pile **pile_b);
-int how_many_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b);
+int nb_moves(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b);
 int which_combo(int index_a, int index_b, t_pile **pile_a, t_pile **pile_b) ;
 void	mouv_if_rrr(t_pile **pile_a, t_pile **pile_b, t_struct info);
 void	mouv_if_rr(t_pile **pile_a, t_pile **pile_b, t_struct tab);

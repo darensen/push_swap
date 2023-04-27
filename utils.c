@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:17:30 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/21 16:38:12 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:57:17 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,16 @@ int *fill_tab(char **av, int ac)
 {
 	int	i;
 	int	*tab;
-	int	temp = ac - 1;
+	int	temp;
 	
 	tab = malloc(sizeof(int) * ac);
 	i = 0;
+	temp = 1;
 	while (i != ac - 1) 
 	{
-		
-		tab[i++] = ft_atoi(av[temp--]);
-		
+		tab[i] = ft_atoi(av[temp]);
+		i++;
+		temp++;
 	}
 	return (tab);
 }

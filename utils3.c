@@ -6,26 +6,23 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:11:21 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/25 17:03:32 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:45:52 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int tab_len(int *tab)
+int	tab_len(int *tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
-	{
 		i++;
-	}
 	return(i);
-	
 }
 
-int is_sorted2(t_pile **pile_a)
+int	is_sorted2(t_pile **pile_a)
 {
 	t_pile *tmp;
 
@@ -39,34 +36,13 @@ int is_sorted2(t_pile **pile_a)
 	return (0);
 }
 
-void sorted_final(t_pile **pile_a)
+void	sorted_final(t_pile **pile_a)
 {
 	while (is_sorted2(pile_a) == 1)
-	{
 		reverse_rotate_a(pile_a);
-	}
 }
 
-int	ft_mediane(int *tab)
-{
-	int	i;
-	int size;
-	int mediane;
-	
-	size = tab_len(tab);
-	
-	if (size % 2 == 0)
-		mediane = size / 2;
-	else if (size % 2 != 0)
-	{
-		i = size / 2;
-		i++;
-		mediane = i;
-	}
-	return(mediane);
-}
-
-int    lst_cont(t_pile **pile)
+int	lst_cont(t_pile **pile)
 {
     t_pile *tmp;
 
@@ -76,7 +52,7 @@ int    lst_cont(t_pile **pile)
     return (tmp->content);
 }
 
-int search(t_pile **pile, int val)
+int	search(t_pile **pile, int val)
 {
 	t_pile *temp;
 	int i;

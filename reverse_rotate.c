@@ -6,58 +6,56 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:08:52 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/04/25 18:44:03 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/27 20:44:28 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void reverse_rotate_a(t_pile **pile)
+void	reverse_rotate_a(t_pile **pile)
 {
-    printf("rra\n");
-    t_pile *temp;
-    t_pile *first;
-    t_pile *last;
-    t_pile *second_to_last;
-    
-    if (!(*pile)->next)
-        return ;
-    temp = *pile;
-    first = temp; 
-    while(temp->next->next != NULL)
-        temp = temp->next;
-    second_to_last = temp;
-    last = temp->next;
-    second_to_last->next = NULL;
-    last->next = first;
-    *pile = last;
+	t_pile	*temp;
+	t_pile	*first;
+	t_pile	*last;
+	t_pile	*second_to_last;
+
+	printf("rra\n");
+	if (!(*pile)->next)
+		return ;
+	temp = *pile;
+	first = temp;
+	while (temp->next->next != NULL)
+		temp = temp->next;
+	second_to_last = temp;
+	last = temp->next;
+	second_to_last->next = NULL;
+	last->next = first;
+	*pile = last;
 }
 
-void reverse_rotate_b(t_pile **pile)
-{
-    printf("rrb\n");
-    if (!(*pile)->next)
-        return ;
-    t_pile *temp;
-    t_pile *first;
-    t_pile *last;
-    t_pile *second_to_last;
-    
-    temp = *pile;
-    first = temp; 
-    while(temp->next->next != NULL)
-        temp = temp->next;
-    second_to_last = temp;
-    last = temp->next;
-    second_to_last->next = NULL;
-    last->next = first;
-    *pile = last;
+void	reverse_rotate_b(t_pile **pile)
+{	
+	t_pile	*temp;
+	t_pile	*first;
+	t_pile	*last;
+	t_pile	*second_to_last;
+
+	printf("rrb\n");
+	if (!(*pile)->next)
+		return ;
+	temp = *pile;
+	first = temp;
+	while (temp->next->next != NULL)
+		temp = temp->next;
+	second_to_last = temp;
+	last = temp->next;
+	second_to_last->next = NULL;
+	last->next = first;
+	*pile = last;
 }
 
-void rrr(t_pile **pile_a, t_pile **pile_b)
+void	rrr(t_pile **pile_a, t_pile **pile_b)
 {
-    //printf("rrr\n");
-    reverse_rotate_a(pile_a);
-    reverse_rotate_b(pile_b);
+	reverse_rotate_a(pile_a);
+	reverse_rotate_b(pile_b);
 }
