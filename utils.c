@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:17:30 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/27 16:57:17 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:24:27 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_pile	*pile_last(t_pile **pile)
 {
-	t_pile *lst;
+	t_pile	*lst;
 
 	lst = *pile;
 	if (!lst)
@@ -48,78 +48,34 @@ void	pile_addback(t_pile **lst, t_pile *new)
 	}
 }
 
-void push_number(t_pile **pile_a, int new_data)
+void	push_number(t_pile **pile_a, int new_data)
 {
-	
-	t_pile *new_element = malloc(sizeof(t_pile));
+	t_pile	*new_element;
+
+	new_element = malloc(sizeof(t_pile));
 	if (!new_element)
 		return ;
-	
 	new_element->content = new_data;
-
 	new_element->next = NULL;
 	pile_addback(pile_a, new_element);
 }
 
-int	lstsize(t_pile *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
-}
-
-int *fill_tab(char **av, int ac)
+int	*fill_tab(char **av, int ac)
 {
 	int	i;
 	int	*tab;
 	int	temp;
-	
+
 	tab = malloc(sizeof(int) * ac);
+	if (!tab)
+		return (0);
 	i = 0;
 	temp = 1;
-	while (i != ac - 1) 
+	while (i != ac - 1)
 	{
 		tab[i] = ft_atoi(av[temp]);
 		i++;
 		temp++;
 	}
 	return (tab);
-}
-
-int	ft_isdigit(char c)
-{
-	if (c >= 48 && c <= 57)
-		return (0);
-	return (1);
-}
-
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	nb;
-	int	signe;
-
-	i = 0;
-	signe = 1;
-	nb = 0;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			signe = -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		nb = (nptr[i] - 48) + nb * 10;
-		i++;
-	}
-	return (nb * signe);
 }

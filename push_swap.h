@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/27 18:14:08 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:18:40 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ int last_content(t_pile **pile);
 t_pile *add_index_a(t_pile **pile_a);
 t_pile *add_index_b(t_pile **pile_b);
 void add_index(t_pile **pile_a, t_pile **pile_b);
-int *sorted_tab(int *tab);
+int *sorted_tab(int *tab, int size);
 int is_sorted(t_pile **pile_a, int nb);
 void print_all(t_pile **pile_a, t_pile **pile_b);
-int is_double(int *tab);
+int is_double(int *tab , int size);
 int is_number(char **tab);
-int is_max_size(int *tab);
+int is_max_size(int *tab, int size);
 void sort(t_pile **pile_a, t_pile **pile_b);
 int	lstsize(t_pile *pile);
 int *fill_tab(char **av, int ac);
@@ -77,11 +77,12 @@ int    lst_cont(t_pile **pile);
 int search(t_pile **pile, int val);
 t_pile	*pile_last(t_pile **lst);
 void	pile_addfront(t_pile **lst, t_pile *new);
+void	ft_swap(int *a, int *b);
 
 
 // ALGO
 void    tri_4(t_pile **pile_a, t_pile **pile_b, int *tab);
-void algo(t_pile **pile_a, t_pile **pile_b, int *tab);
+void algo(t_pile **pile_a, t_pile **pile_b, int *tab, int size);
 void tri_5(t_pile **pile_a, t_pile **pile_b, int *tab);
 void tri_3(t_pile **pile_a);
 

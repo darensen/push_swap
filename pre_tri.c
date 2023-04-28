@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   pre_tri.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudui <abeaudui@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:42:14 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/27 20:27:15 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:27:15 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*sorted_tab(int *tab)
+int	*sorted_tab(int *tab, int size)
 {
 	int	i;
 	int	j;
 	int	temp;
 
-	j = 0;
 	i = 0;
-	while (tab[i + 1])
+	while (i != size - 1)
 	{
 		j = i + 1;
 		if (tab[i] > tab[j])
@@ -34,4 +33,17 @@ int	*sorted_tab(int *tab)
 			i++;
 	}
 	return (tab);
+}
+
+int	lstsize(t_pile *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

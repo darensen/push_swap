@@ -6,17 +6,18 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:00:25 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/04/27 17:03:39 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/28 16:38:44 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rotate_a(t_pile **pile)
+void	rotate_a(t_pile **pile)
 {
+	t_pile	*tmp;
+	int		i;
+
 	printf("ra\n");
-	t_pile *tmp;
-	int i;
 	if ((*pile)->next == NULL)
 		return ;
 	tmp = *pile;
@@ -24,16 +25,17 @@ void rotate_a(t_pile **pile)
 	while (tmp->next != NULL)
 	{
 		tmp->content = tmp->next->content;
-		tmp = tmp->next; 
+		tmp = tmp->next;
 	}
 	tmp->content = i;
 }
 
-void rotate_b(t_pile **pile)
+void	rotate_b(t_pile **pile)
 {
+	t_pile	*tmp;
+	int		i;
+
 	printf("rb\n");
-	t_pile *tmp;
-	int i;
 	if (!(*pile)->next)
 		return ;
 	tmp = *pile;
@@ -41,13 +43,13 @@ void rotate_b(t_pile **pile)
 	while (tmp->next != NULL)
 	{
 		tmp->content = tmp->next->content;
-		tmp = tmp->next; 
+		tmp = tmp->next;
 	}
 	tmp->content = i;
 }
 
-void rr(t_pile **pile_a, t_pile **pile_b)
+void	rr(t_pile **pile_a, t_pile **pile_b)
 {
-    rotate_a(pile_a);
-    rotate_b(pile_b);
+	rotate_a(pile_a);
+	rotate_b(pile_b);
 }

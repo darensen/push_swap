@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:31:32 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/27 20:34:27 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/28 19:54:51 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	push_a(t_pile **pile_a, t_pile **pile_b)
 		return ;
 	*pile_b = tmp->next;
 	push_number2(pile_a, tmp->content);
+	free(tmp);
 }
 
 void	push_b(t_pile **pile_a, t_pile **pile_b)
@@ -46,4 +47,5 @@ void	push_b(t_pile **pile_a, t_pile **pile_b)
 		return ;
 	*pile_a = tmp->next;
 	push_number2(pile_b, tmp->content);
+	free(tmp);
 }
