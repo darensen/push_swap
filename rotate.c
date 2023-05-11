@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 14:00:25 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/04/28 16:38:44 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:26:14 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate_a(t_pile **pile)
 	t_pile	*tmp;
 	int		i;
 
-	printf("ra\n");
+	ft_printf("ra\n");
 	if ((*pile)->next == NULL)
 		return ;
 	tmp = *pile;
@@ -35,7 +35,7 @@ void	rotate_b(t_pile **pile)
 	t_pile	*tmp;
 	int		i;
 
-	printf("rb\n");
+	ft_printf("rb\n");
 	if (!(*pile)->next)
 		return ;
 	tmp = *pile;

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:39:34 by dsenatus          #+#    #+#             */
-/*   Updated: 2023/04/28 16:42:25 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/30 17:50:57 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap_a(t_pile **pile)
 	int		i;
 
 	tmp = *pile;
-	printf("sa\n");
+	ft_printf("sa\n");
 	i = tmp->content;
 	if ((*pile)->next != NULL && pile != NULL)
 	{
@@ -32,7 +32,7 @@ void	swap_b(t_pile **pile)
 	t_pile	*tmp;
 	int		i;
 
-	printf("sb\n");
+	ft_printf("sb\n");
 	tmp = *pile;
 	i = tmp->content;
 	if ((*pile)->next != NULL && pile != NULL)

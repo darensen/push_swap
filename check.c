@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:29:09 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/28 17:16:57 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:34:42 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	is_double(int *tab, int size)
 		while (i != size - 1)
 		{
 			if (tab[i] == tab[j])
+			{
+				free(tab);
 				return (1);
+			}
 			i++;
 		}
 	j++;
@@ -36,7 +39,7 @@ int	is_number(char **tab)
 {
 	int	i;
 	int	j;
-
+	
 	i = 1;
 	while (tab[i])
 	{
@@ -46,7 +49,11 @@ int	is_number(char **tab)
 			if (tab[i][j] == '-' && j == 0)
 				j++;
 			if (ft_isdigit(tab[i][j]) == 1)
+			{
+				ft_printf("Erroooor\n");
+				ft_printf("%d", tab[i]);
 				return (1);
+			}
 			j++;
 		}
 		i++;
@@ -62,7 +69,10 @@ int	is_max_size(int *tab, int size)
 	while (i != size -1)
 	{
 		if (tab[i] > 32767 || tab[i] < -32768)
+		{
+			free(tab);
 			return (1);
+		}
 		i++;
 	}
 	return (0);
@@ -70,7 +80,7 @@ int	is_max_size(int *tab, int size)
 
 int	ft_isdigit(char c)
 {
-	if (c >= 48 && c <= 57)
+	if ((c >= 48 && c <= 57) || (c == ' '))
 		return (0);
 	return (1);
 }

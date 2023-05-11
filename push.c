@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:31:32 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/28 19:54:51 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/04/30 17:51:29 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push_a(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*tmp;
 
-	printf("pa\n");
+	ft_printf("pa\n");
 	tmp = *pile_b;
 	if (tmp == NULL)
 		return ;
@@ -41,7 +41,7 @@ void	push_b(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*tmp;
 
-	printf("pb\n");
+	ft_printf("pb\n");
 	tmp = *pile_a;
 	if (tmp == NULL)
 		return ;
