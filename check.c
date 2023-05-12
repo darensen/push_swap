@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:29:09 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/11 18:34:42 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:37:38 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,13 @@ int	is_number(char **tab)
 		j = 0;
 		while (tab[i][j])
 		{
+			while (tab[i][j] == ' ')
+				j++;
 			if (tab[i][j] == '-' && j == 0)
 				j++;
 			if (ft_isdigit(tab[i][j]) == 1)
 			{
 				ft_printf("Erroooor\n");
-				ft_printf("%d", tab[i]);
 				return (1);
 			}
 			j++;
@@ -80,7 +81,7 @@ int	is_max_size(int *tab, int size)
 
 int	ft_isdigit(char c)
 {
-	if ((c >= 48 && c <= 57) || (c == ' '))
+	if ((c >= 48 && c <= 57))
 		return (0);
 	return (1);
 }

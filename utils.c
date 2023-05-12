@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:17:30 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/11 19:58:57 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:35:50 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,17 @@ void	push_number(t_pile **pile_a, int new_data)
 	pile_addback(pile_a, new_element);
 }
 
+static char	**ft_free(char **tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free (tab);
+	return (NULL);
+}
+
 int	*fill_tab(char **av, int ac, int ac0)
 {
 	int	i;
@@ -77,11 +88,12 @@ int	*fill_tab(char **av, int ac, int ac0)
 		str = ft_split(av[1], ' ');
 		temp = 0;
 		while (i != ac - 1)
-		{		
+		{	
 			tab[i] = ft_atoi(str[temp]);
 			i++;
 			temp++;
 		}
+		ft_free(str);
 		return (tab);
 	}
 	while (i != ac0 - 1)

@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/11 19:43:26 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/12 18:37:55 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,26 @@ int	ac2(char **av)
 	i = 0;
 	while (av[1][j])
 	{
-		if (av[1][j] == ' ')
+		if (ft_isdigit(av[1][j]) == 0)
+		{
 			e++;
-		j++;			
+			while (ft_isdigit(av[1][j]) == 0)
+			{
+				j++;
+			}
+		}
+		while (av[1][j] == ' ')
+			j++;		
 	}
 	if (e >= 2)
 	{
-		e = e + 2;
+		e = e + 1;
+		i = 2;
+		while (av[i])
+		{
+			i++;
+			e++;
+		}
 		return (e);
 	}
 	while (av[i])
@@ -48,7 +61,7 @@ int	main(int ac, char **av)
 	i = 0;
 	pile_a = NULL;
 	pile_b = NULL;
-	if (is_number(av) == 0 )
+	if (is_number(av) == 0 && ac > 1)
 	{
 		tab = fill_tab(av, ac2(av), ac);
 		if (is_double(tab, ac2(av)) == 0 && is_max_size(tab, ac2(av)) == 0)
