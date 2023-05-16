@@ -6,48 +6,60 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/12 18:37:55 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:29:53 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ac2(char **av)
+int	ac_1_or_2(int ac, char **av)
 {
 	int	i;
-	int e;
-	int j;
+	int	e;
+
+	e = 0;
+	if (ac >= 2)
+	{
+		i = 0;
+		ac = ac + 1;
+		i = 2;
+		while (av[i])
+		{
+			i++;
+			ac++;
+		}
+		return (ac);
+	}
+	else
+	{
+		while (av[e])
+			e++;
+		return (e);
+	}
+}
+
+int	ac2(char **av)
+{
+	int	e;
+	int	j;
 
 	j = 0;
 	e = 0;
-	i = 0;
 	while (av[1][j])
 	{
-		if (ft_isdigit(av[1][j]) == 0)
+		if (ft_isdigit2(av[1][j]) == 0)
 		{
 			e++;
-			while (ft_isdigit(av[1][j]) == 0)
+			while ((ft_isdigit2(av[1][j]) == 0))
 			{
 				j++;
 			}
 		}
 		while (av[1][j] == ' ')
-			j++;		
+			j++;
 	}
-	if (e >= 2)
-	{
-		e = e + 1;
-		i = 2;
-		while (av[i])
-		{
-			i++;
-			e++;
-		}
-		return (e);
-	}
-	while (av[i])
-		i++;
-	return (i);
+	e = (ac_1_or_2(e, av));
+	return (e);
 }
 
 int	main(int ac, char **av)

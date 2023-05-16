@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:29:09 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/12 18:37:38 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:15:09 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	is_number(char **tab)
 {
 	int	i;
 	int	j;
-	
+
 	i = 1;
 	while (tab[i])
 	{
@@ -48,15 +48,15 @@ int	is_number(char **tab)
 		{
 			while (tab[i][j] == ' ')
 				j++;
-			if (tab[i][j] == '-' && j == 0)
+			if (tab[i][j] == '-' && ft_isdigit(tab[i][j + 1] == 0))
 				j++;
 			if (ft_isdigit(tab[i][j]) == 1)
 			{
-				ft_printf("Erroooor\n");
+				ft_printf("Error\n");
 				return (1);
-			}
+			}	
 			j++;
-		}
+		}	
 		i++;
 	}
 	return (0);

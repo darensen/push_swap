@@ -6,20 +6,17 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:11:21 by arnaud            #+#    #+#             */
-/*   Updated: 2023/04/28 16:50:53 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:08:07 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	tab_len(int *tab)
+int	ft_isdigit2(char c)
 {
-	int	i;
-
-	i = 0;
-	while (tab[i])
-		i++;
-	return (i);
+	if ((c >= 48 && c <= 57) || (c == '-'))
+		return (0);
+	return (1);
 }
 
 int	is_sorted2(t_pile **pile_a)

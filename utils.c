@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:17:30 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/12 18:35:50 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:24:38 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,34 +35,9 @@ void	pile_addfront(t_pile **lst, t_pile *new)
 	*lst = new;
 }
 
-void	pile_addback(t_pile **lst, t_pile *new)
+char	**ft_free(char **tab)
 {
-	t_pile	*last;
-
-	if (!(*lst))
-		*lst = new;
-	else
-	{
-		last = pile_last(lst);
-		last->next = new;
-	}
-}
-
-void	push_number(t_pile **pile_a, int new_data)
-{
-	t_pile	*new_element;
-
-	new_element = malloc(sizeof(t_pile));
-	if (!new_element)
-		return ;
-	new_element->content = new_data;
-	new_element->next = NULL;
-	pile_addback(pile_a, new_element);
-}
-
-static char	**ft_free(char **tab)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -71,13 +46,29 @@ static char	**ft_free(char **tab)
 	return (NULL);
 }
 
-int	*fill_tab(char **av, int ac, int ac0)
+int	*o(int ac0, int *tab, char **av)
 {
 	int	i;
-	int	*tab;
 	int	temp;
-	char **str;
-	
+
+	temp = 1;
+	i = 0;
+	while (i != ac0 - 1)
+	{
+		tab[i] = ft_atoi(av[temp]);
+		i++;
+		temp++;
+	}
+	return (tab);
+}
+
+int	*fill_tab(char **av, int ac, int ac0)
+{
+	int		i;
+	int		*tab;
+	int		temp;
+	char	**str;
+
 	tab = malloc(sizeof(int) * ac);
 	if (!tab)
 		return (0);
@@ -96,11 +87,6 @@ int	*fill_tab(char **av, int ac, int ac0)
 		ft_free(str);
 		return (tab);
 	}
-	while (i != ac0 - 1)
-	{
-		tab[i] = ft_atoi(av[temp]);
-		i++;
-		temp++;
-	}
+	tab = o(ac0, tab, av);
 	return (tab);
 }

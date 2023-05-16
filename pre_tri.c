@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:42:14 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/28 18:27:15 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/16 17:24:28 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,29 @@ int	lstsize(t_pile *lst)
 		i++;
 	}
 	return (i);
+}
+
+void	pile_addback(t_pile **lst, t_pile *new)
+{
+	t_pile	*last;
+
+	if (!(*lst))
+		*lst = new;
+	else
+	{
+		last = pile_last(lst);
+		last->next = new;
+	}
+}
+
+void	push_number(t_pile **pile_a, int new_data)
+{
+	t_pile	*new_element;
+
+	new_element = malloc(sizeof(t_pile));
+	if (!new_element)
+		return ;
+	new_element->content = new_data;
+	new_element->next = NULL;
+	pile_addback(pile_a, new_element);
 }

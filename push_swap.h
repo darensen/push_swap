@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/11 19:16:56 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/16 16:17:53 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,8 @@ int			search(t_pile **pile, int val);
 t_pile		*pile_last(t_pile **lst);
 void		pile_addfront(t_pile **lst, t_pile *new);
 void		ft_swap(int *a, int *b);
-char	**ft_split(char const *s, char c);
-
-
+char		**ft_split(char const *s, char c);
+int			ft_isdigit2(char c);
 
 // ALGO
 void		tri_4(t_pile **pile_a, t_pile **pile_b, int *tab);
