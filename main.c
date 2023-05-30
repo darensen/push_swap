@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:13:29 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/16 17:29:53 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:22:10 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int	main(int ac, char **av)
 {
 	t_pile	*pile_a;
 	t_pile	*pile_b;
-	int		*tab;
-	int		*second_tab;
+	long	*tab;
+	long	*second_tab;
 	int		i;
 
 	i = 0;

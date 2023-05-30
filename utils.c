@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:17:30 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/16 17:24:38 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/22 16:33:29 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**ft_free(char **tab)
 	return (NULL);
 }
 
-int	*o(int ac0, int *tab, char **av)
+long	*o(int ac0, long *tab, char **av)
 {
 	int	i;
 	int	temp;
@@ -62,14 +62,14 @@ int	*o(int ac0, int *tab, char **av)
 	return (tab);
 }
 
-int	*fill_tab(char **av, int ac, int ac0)
+long	*fill_tab(char **av, int ac, int ac0)
 {
 	int		i;
-	int		*tab;
+	long	*tab;
 	int		temp;
 	char	**str;
 
-	tab = malloc(sizeof(int) * ac);
+	tab = malloc(sizeof(long) * ac);
 	if (!tab)
 		return (0);
 	i = 0;

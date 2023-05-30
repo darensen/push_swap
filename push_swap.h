@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:18:45 by arnaud            #+#    #+#             */
-/*   Updated: 2023/05/16 16:17:53 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:23:33 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ int			last_content(t_pile **pile);
 t_pile		*add_index_a(t_pile **pile_a);
 t_pile		*add_index_b(t_pile **pile_b);
 void		add_index(t_pile **pile_a, t_pile **pile_b);
-int			*sorted_tab(int *tab, int size);
+long		*sorted_tab(long *tab, int size);
 int			is_sorted(t_pile **pile_a, int nb);
 void		print_all(t_pile **pile_a, t_pile **pile_b);
-int			is_double(int *tab, int size);
+int			is_double(long *tab, int size);
 int			is_number(char **tab);
-int			is_max_size(int *tab, int size);
+int			is_max_size(long *tab, int size);
 void		sort(t_pile **pile_a, t_pile **pile_b);
 int			lstsize(t_pile *pile);
-int			*fill_tab(char **av, int ac, int ac0);
+long		*fill_tab(char **av, int ac, int ac0);
 int			find_smallest(t_pile **pile);
 int			find_biggest(t_pile **pile);
 int			lst_cont(t_pile **pile);
@@ -79,9 +79,9 @@ char		**ft_split(char const *s, char c);
 int			ft_isdigit2(char c);
 
 // ALGO
-void		tri_4(t_pile **pile_a, t_pile **pile_b, int *tab);
-void		algo(t_pile **pile_a, t_pile **pile_b, int *tab, int size);
-void		tri_5(t_pile **pile_a, t_pile **pile_b, int *tab);
+void		tri_4(t_pile **pile_a, t_pile **pile_b, long *tab);
+void		algo(t_pile **pile_a, t_pile **pile_b, long *tab, int size);
+void		tri_5(t_pile **pile_a, t_pile **pile_b, long *tab);
 void		tri_3(t_pile **pile_a);
 void		exec_if(t_pile **pile_a, t_pile **pile_b);
 int			nb_moves(int index_a, int index_b, t_pile **a, t_pile **b);
@@ -94,6 +94,6 @@ void		exec(t_pile **pile_a, t_pile**pile_b);
 void		sorted_final(t_pile **pile_a);
 int			is_sorted2(t_pile **pile_a);
 int			ft_isdigit(char c);
-int			ft_atoi(const char *nptr);
+long		ft_atoi(const char *nptr);
 t_struct	optimal_bloc(t_pile **pile_a, t_pile **pile_b);
 #endif

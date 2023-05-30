@@ -6,7 +6,7 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:26:09 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/04/27 20:32:09 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:23:07 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	tri_3(t_pile **pile_a)
 		reverse_rotate_a(pile_a);
 }
 
-void	tri_4(t_pile **pile_a, t_pile **pile_b, int *tab)
+void	tri_4(t_pile **pile_a, t_pile **pile_b, long *tab)
 {
 	while (lstsize(*pile_a) != 3)
 	{
@@ -54,7 +54,7 @@ void	tri_4(t_pile **pile_a, t_pile **pile_b, int *tab)
 	push_a(pile_a, pile_b);
 }
 
-void	tri_5(t_pile **pile_a, t_pile **pile_b, int *tab)
+void	tri_5(t_pile **pile_a, t_pile **pile_b, long *tab)
 {
 	while (lstsize(*pile_a) != 3)
 	{

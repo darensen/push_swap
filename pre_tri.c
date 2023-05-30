@@ -6,13 +6,13 @@
 /*   By: dsenatus <dsenatus@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 18:42:14 by abeaudui          #+#    #+#             */
-/*   Updated: 2023/05/16 17:24:28 by dsenatus         ###   ########.fr       */
+/*   Updated: 2023/05/22 15:21:34 by dsenatus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*sorted_tab(int *tab, int size)
+long	*sorted_tab(long *tab, int size)
 {
 	int	i;
 	int	j;
